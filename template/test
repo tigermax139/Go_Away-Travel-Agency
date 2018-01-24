@@ -1,0 +1,33 @@
+    <% oneOrder.forEach((order, index) => { %>
+
+    <%= order.name %>
+    <br>
+    <%= order.number %>
+    <br>
+    <%= order.email %><br>
+    <%= order.message %><br>
+    <%= order.orderPrice %><br>
+    <%= order.orderAdult %><br>
+    <%= order.orderChildren %><br>
+    <%= order.orderDateIn %><br>
+    <%= order.orderDateOut %><br>
+    <%= order.orderHotel %><br>
+    <%= order.orderRoom %><br>
+    <%= order.orderTour %><br>
+    <%= order.orderCountry %><br>
+    <% }); %>
+</div>
+<div class="ticket__btn">
+    <a href="/delete/<%= order._id %>"> Нашел ошыбку, заказать снова</a>
+    <a onclick="window.print()">печать билета</a>
+</div>
+
+    <ul class="container breadcrumbs__container">
+        <% for (var i = 0; i <= bCrumbs.length; i++) { %>
+            <%if (i === bCrumbs.length ) {%>
+                <li><a class="breadcrumbs__item page-active"><%= bCrumbs[i].text %></a></li>
+            <%} else {%>
+                <li><a href="<%= bCrumbs[i].link %>" class="breadcrumbs__item"><%= bCrumbs[i].text %></a></li>
+            <%}%>
+        <% } %>
+    </ul>

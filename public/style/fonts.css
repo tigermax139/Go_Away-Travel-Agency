@@ -1,0 +1,28 @@
+/*Font for all h2-h6*/
+@font-face {
+    font-family: "Barkentina";
+    src: url("../fonts/Barkentina/BarkentinaRegular/BarkentinaRegular.eot");
+    src: url("../fonts/Barkentina/BarkentinaRegular/BarkentinaRegular.eot?#iefix")format("embedded-opentype"),
+    url("../fonts/Barkentina/BarkentinaRegular/BarkentinaRegular.woff") format("woff"),
+    url("../fonts/Barkentina/BarkentinaRegular/BarkentinaRegular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+/*  general font*/
+@font-face {
+    font-family: "OpenSansRegular";
+    src: url("../fonts/OpenSans/OpenSansRegular/OpenSansRegular.eot");
+    src: url("../fonts/OpenSans/OpenSansRegular/OpenSansRegular.eot?#iefix")format("embedded-opentype"),
+    url("../fonts/OpenSans/OpenSansRegular/OpenSansRegular.woff") format("woff"),
+    url("../fonts/OpenSans/OpenSansRegular/OpenSansRegular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+/*font for logo h1*/
+@font-face {
+    font-family: "Pacifico";
+    src: url("../fonts/Pacifico/Pacifico.ttf");
+    url("../fonts/Pacifico/Pacifico.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}

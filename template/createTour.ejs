@@ -1,0 +1,67 @@
+<% include header %>
+<form action="createTour" method="post" class="admin__form">
+    <label for="tourName">
+        Tour name
+        <input type="text" name="tourName" id="tourName">
+    </label>
+    <label for="tourCountry">
+        Tour Country
+        <select name="tourCountry" id="tourCountry">
+            <option selected>Все страны</option>
+            <optgroup label="Европа">
+                <option value="Германия" >Германия</option>
+                <option value="Франция">Франция</option>
+                <option value="Великобритания">Великобритания</option>
+                <option value="Испания">Испания</option>
+            </optgroup>
+            <optgroup label="Азия">
+                <option value="Турция">Турция</option>
+                <option value="ОАЭ">ОАЭ</option>
+            </optgroup>
+            <optgroup label="Южная Америка">
+                <option value="Парагрвай">Парагрвай</option>
+            </optgroup>
+            <optgroup label="Африка">
+                <option value="Египет">Египет</option>
+            </optgroup>
+        </select>
+    </label>
+    <label for="tourPrice">
+        Tour Price
+        <input type="number" name="tourPrice" id="tourPrice">
+    </label>
+
+    <textarea name="tourDescription" id="tourDescription" cols="30" rows="10">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet asperiores
+        assumenda eos eveniet explicabo fugiat hic inventore, ipsum laboriosam maiores
+        modi natus placeat quam recusandae saepe similique tenetur ullam ut?
+    </textarea>
+
+    <textarea name="tourContent" id="tourContent" cols="30" rows="10">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            A aperiam corporis dignissimos earum ipsa laboriosam magnam nam nobis nostrum quos,
+            reprehenderit, sed, similique vitae. Ducimus odit quia tempora velit voluptatum.
+        Beatae blanditiis commodi consequuntur corporis, delectus dicta error esse, inventore
+            ipsa itaque nobis quae quasi rem sequi tempore velit vero voluptates! Aperiam asperiores
+            atque autem harum nostrum sint suscipit ut.
+        Asperiores blanditiis ex facere harum inventore, ipsum, odit officiis praesentium
+            provident quas, soluta sunt vel voluptate! Amet dolore, doloremque, ex hic nobis officia
+            quas quisquam rerum, sed tenetur totam unde!
+    </textarea>
+
+    <label for="tourFeatures">
+        <select name="tourFeatures" id="tourFeatures">
+            <option value="Топ направления">Топ направления</option>
+            <option value="Скидка">Скидка</option>
+            <option value="Детский тур">Детский тур</option>
+            <option value="Романтик">Романтик</option>
+            <option value="" selected>Empty</option>
+        </select>
+    </label>
+
+    <label for="tourImg">
+        <input type="file" name="tourImg" id="tourImg" accept="image/*">
+    </label>
+    <input type="submit" value="Create tour">
+</form>
+<% include footer %>

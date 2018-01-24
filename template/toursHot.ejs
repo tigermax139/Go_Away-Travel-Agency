@@ -1,0 +1,50 @@
+<% include header %>
+<section class="container-fluid hero">
+    <h1 class="company__name page__name">All Tours</h1>
+</section>
+<section class="container-fluid breadcrumbs">
+    <ul class="container breadcrumbs__container">
+        <li><a href="/index" class="breadcrumbs__item">Главная</a></li>
+        <li><a href="/tours" class="breadcrumbs__item">Все туры</a></li>
+        <li><span class="breadcrumbs__item">Горячие туры</span></li>
+    </ul>
+</section>
+<section class="container-fluid tours">
+    <div class="tours__container">
+        <div class="tours__items">
+            <% tours.forEach((tour, index) => { %>
+            <div class="tour tour-features " data-features="<%= tour.tourFeatures %>" data-country="<%= tour.tourCountry %>"
+                 data-price="<%= tour.tourPrice %>">
+                <div class="tour__visible">
+                    <div class="tour__img-container">
+                        <img src="../img/country/<%= tour.tourImg %>" alt="<%= tour.tourCountry %>" width="600"
+                             height="200" class="tour__img">
+                    </div>
+                    <div class="tour__price">
+                        <b><%= tour.tourPrice %>$ / 7 day</b>
+                    </div>
+                </div>
+                <div class="tour__description">
+                    <p>
+                        <%= tour.tourDescription %>
+                    </p>
+                    <a href="/single/<%= tour._id %>" target="_blank" class="callback__btn">Посмотреть тур</a>
+                </div>
+            </div>
+            <% }); %>
+
+        </div>
+        <ul class="paginator">
+            <% for (var i = 1; i <= maxPage; i++) { %>
+                <%if (maxPage != 1) {%>
+                    <%if (i === page) {%>
+                        <li><a class="paginator__page page-active"><%= i%></a></li>
+                    <%} else {%>
+                        <li><a href="/tours/hot?p=<%= i%>" class="paginator__page"><%= i%></a></li>
+                    <%}%>
+                <% } %>
+            <% } %>
+        </ul>
+    </div>
+</section>
+<% include footer %>

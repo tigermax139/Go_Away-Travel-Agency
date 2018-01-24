@@ -1,0 +1,76 @@
+.i-avatar, .i-baby, .i-map, .i-plane, .i-search, .owl, .twitter, .down-arrow, .facebook, .infinity, .instagram, .multiply{
+	background: url(sprites.png) no-repeat;
+}
+
+.i-avatar{
+	background-position: -23.000003814697266px -53px ;
+	width: 24px;
+	height: 24px;
+}
+
+.i-baby{
+	background-position: 0 -54px ;
+	width: 24px;
+	height: 24px;
+}
+
+.i-map{
+	background-position: -29.000003814697266px -80px ;
+	width: 24px;
+	height: 24px;
+}
+
+.i-plane{
+	background-position: 0 -80px ;
+	width: 24px;
+	height: 24px;
+}
+
+.i-search{
+	background-position: -0.000003814697265625px 0;
+	width: 24px;
+	height: 24px;
+}
+
+.owl{
+	background-position: -30.987499237060547px -25px ;
+	width: 24px;
+	height: 24px;
+}
+
+.twitter{
+	background-position: -78.98749923706055px -24px ;
+	width: 24px;
+	height: 24px;
+}
+
+.down-arrow{
+	background-position: -58.999996185302734px 0;
+	width: 16px;
+	height: 16px;
+}
+
+.facebook{
+	background-position: -56.98749923706055px -26px ;
+	width: 24px;
+	height: 24px;
+}
+
+.infinity{
+	background-position: -79.98749923706055px 0;
+	width: 16px;
+	height: 16px;
+}
+
+.instagram{
+	background-position: -2.9749984741210938px -26px ;
+	width: 24px;
+	height: 24px;
+}
+
+.multiply{
+	background-position: -34.999996185302734px -1px ;
+	width: 16px;
+	height: 16px;
+}
+

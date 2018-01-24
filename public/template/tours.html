@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <!--favicon-->
+    <link rel="apple-touch-icon" sizes="180x180" href="../img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../img/favicons/favicon-16x16.png">
+    <link rel="manifest" href="../img/favicons/manifest.json">
+    <link rel="mask-icon" href="../img/favicons/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
+    <!--meta tag-->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width">
+    <!--style-->
+    <![if IE]>
+    <link rel="stylesheet" href="../style/jquery-ui.css">
+    <![endif]>
+    <link rel="stylesheet" href="../style/fonts.css">
+    <link rel="stylesheet" href="../style/general.css">
+    <link rel="stylesheet" href="../style/sprites.css">
+    <link rel="stylesheet" href="../style/media.css">
+    <title>Go Away Travel Agency</title>
+</head>
+</html>
+<body>
+<header class="container-fluid">
+    <nav class="container navbar">
+        <a class="logo" href="#"><img src="../img/logo/logo.png" width="225" height="65"></a>
+        <input type="checkbox" id="burgerMenu">
+        <label for="burgerMenu" class="burger-label">
+            <span class="burger-label__item"></span>
+            <span class="burger-label__item"></span>
+            <span class="burger-label__item"></span>
+        </label>
+        <ul class="nav">
+            <li><a href="#">Главная</a></li>
+            <li class="sub-menu">
+                <a href="#" class="sub-menu__btn" onclick="dropDown('#dropdown-1')">Туры</a>
+                <ul class="sub-menu__container sub-menu-js" id="dropdown-1">
+                    <li class="sub-menu__item"><a href="#">Горячие туры</a></li>
+                    <li class="sub-menu__item"><a href="#">Топ направления</a></li>
+                    <li class="sub-menu__item"><a href="#">Все туры</a></li>
+                </ul>
+            </li>
+            <li class="sub-menu" >
+                <a href="#" class="sub-menu__btn" onclick="dropDown('#dropdown-2')">Услуги</a>
+                <ul class="sub-menu__container" id="dropdown-2">
+                    <li class="sub-menu__item"><a href="#">Визы</a></li>
+                    <li class="sub-menu__item"><a href="#">Страховки</a></li>
+                    <li class="sub-menu__item"><a href="#">Все услуги</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Контакты</a></li>
+            <li><a href="#">Отзывы</a></li>
+            <li class="callback">
+                <button class="callback__btn" id="modalCallback-b" data-target="#modalCallback-c">Заказать звонок</button>
+            </li>
+        </ul>
+    </nav>
+</header>
+<!--MODAL CALLBACK WINDOW BEGIN-->
+<div class="modal container-fluid " id="modalCallback-w">
+    <div class="modal__container container">
+        <div class="modal__title">
+            <b>
+                Заполните пожалуйста все поля заявки, и наш менеджер
+                обезательно с вами свяжеться!
+            </b>
+        </div>
+        <form action="#" method="post" class="modal__form">
+            <label for="customerName" class="modal__form-item">
+                Как к вам можно обращаться?
+            </label>
+            <input type="text" class="modal__form-item" name="customerName" id="customerName" placeholder="Имя"
+                   pattern="^[A-Za-zА-Яа-яЁё]+$" required>
+            <label for="customerNumber" class="modal__form-item">
+                Ваш номер телефона
+            </label>
+            <input type="tel" class="modal__form-item" id="customerNumber" name="customerNumber" placeholder="+38000000000"
+                   minlength="10" maxlength="13" required>
+            <textarea name="customerMessage" id="customerMessage" class="modal__form-item" cols="30" rows="10"
+                      placeholder="Здесь можете написать свой коментарий"></textarea>
+            <input type="submit" class="callback__btn" value="Заказать звонок" >
+        </form>
+        <button class="callback__btn modal-close">
+            <img src="../img/icons/multiply.png" alt="cross">
+        </button>
+    </div>
+</div>
+<!--MODAL CALLBACK WINDOW END  -->
+<section class="container-fluid hero">
+    <h1 class="company__name page__name">All Tours</h1>
+</section>
+<section class="container-fluid breadcrumbs">
+    <ul class="container breadcrumbs__container">
+        <li><a href="index.html" class="breadcrumbs__item">Главная</a></li>
+        <li><span class="breadcrumbs__item">Все туры</span></li>
+    </ul>
+</section>
+<section class="container-fluid tours">
+    <div class="tours__filter">
+        <form action="#" method="get" class="filter__form" name="filterForm">
+            <!--<fieldset class="filter__group">-->
+                <!--<legend>Числа поездки</legend>-->
+                <!--<label for="dateIn" class="filter__label">-->
+                    <!--Дата Вылета-->
+                <!--</label>-->
+                <!--<input type="date" id="dateIn" name="dateIn" class="filter__item" required>-->
+                <!--<label for="dateOut" class="filter__label">-->
+                    <!--Дата Возвращения-->
+                <!--</label>-->
+                <!--<input type="date" id="dateOut" name="dateOut" class="filter__item" required>-->
+            <!--</fieldset>-->
+            <fieldset class="filter__group">
+                <legend>Направление</legend>
+                <label for="country__list-s" class="filter__label">Далеко собрались?</label>
+                <!--<datalist id="country__list">-->
+                    <select id="country__list-s" class="filter__select filter__item" >
+                        <option selected>Все страны</option>
+                        <optgroup label="Европа">
+                            <option value="DE" >Германия</option>
+                            <option value="DZ">Франция</option>
+                            <option value="GB">Великобритания</option>
+                            <option value="ES">Испания</option>
+                        </optgroup>
+                        <optgroup label="Азия">
+                            <option value="TR">Турция</option>
+                            <option value="AE">ОАЭ</option>
+                        </optgroup>
+                        <optgroup label="Южная Америка">
+                            <option value="PR">Парагрвай</option>
+                        </optgroup>
+                        <optgroup label="Африка">
+                            <option value="EG">Египет</option>
+                        </optgroup>
+                    </select>
+                <!--</datalist>-->
+                <!--<input type="text" id="country" list="country__list" name="country" class="filter__item" required>-->
+            </fieldset>
+            <!--<fieldset class="filter__group">-->
+                <!--<legend>Количество людей</legend>-->
+                <!--<label for="adult" class="filter__label">Количество взрослых</label>-->
+                <!--<select name="adult" id="adult" class="filter__item">-->
+                    <!--<option value="1">  1</option>-->
+                    <!--<option value="2" selected> 2 </option>-->
+                    <!--<option value="3"> 3 </option>-->
+                    <!--<option value="4"> 4 </option>-->
+                    <!--<option value="5"> 5 </option>-->
+                    <!--<option value="6"> 6 </option>-->
+                <!--</select>-->
+                <!--<label for="children" class="filter__label">Количество детей</label>-->
+                <!--<select name="children" id="children" class="filter__item">-->
+                    <!--<option value="0" selected> 0 </option>-->
+                    <!--<option value="1"> 1 </option>-->
+                    <!--<option value="2"> 2 </option>-->
+                    <!--<option value="3"> 2 </option>-->
+                    <!--<option value="4"> 2 </option>-->
+                    <!--<option value="5"> 2 </option>-->
+                    <!--<option value="6"> 2 </option>-->
+                <!--</select>-->
+            <!--</fieldset>-->
+            <fieldset class="filter__group" oninput="outPrice.value = maxPrice.valueAsNumber">
+                <legend>Цена</legend>
+                <label for="maxPrice" class="filter__label">Установите максимальную стоимость поездки</label>
+                <input type="range" id="maxPrice" name="maxPrice" max="5000" min="300" step="100"
+                       value="5000" class="filter__item">
+                <output for="maxPrice" name="outPrice" id="outPrice">5000</output>$
+            </fieldset>
+            <!--<input type="submit" value="Найти Свой тур" class="callback__btn">-->
+        </form>
+    </div>
+    <div class="tours__container">
+        <div class="tours__sort">
+            <div class="sort__btn">
+                <button id="view_short" title="Расположыть туры плиткой">
+                    <img src="../img/icons/menu.png" alt="menu-short">
+                </button>
+                <button id="view_long" title="Расположыть туры списком">
+                    <img src="../img/icons/menu-1.png" alt="menu-long">
+                </button>
+                <button id="sort_price" title="Сортировать от дешевых к дорогим">
+                    <img src="../img/icons/loss.png" alt="dollar down">
+                </button>
+            </div>
+            <div class="sort__tag">
+                <button class="tag color-desert" id="btnTop" data-target="Топ направление">Топ Направления</button>
+                <button class="tag color-sea" id="btnSale"  data-target="Скидка">Скидки</button>
+                <button class="tag color-sale" id="btnChild"  data-target="Детские туры">Детские туры</button>
+                <button class="tag color-top" id="btnLove"  data-target="Романтик">Романтик</button>
+            </div>
+        </div>
+        <div class="tours__items">
+            <div class="tour tour-features color-sale" data-features="Скидка" data-country="Египет" data-price="1500">
+                <div class="tour__visible">
+                    <div class="tour__img-container">
+                        <img src="../img/tour.jpg" alt="egypt" width="600" height="200" class="tour__img">
+                    </div>
+                    <div class="tour__price">
+                        <!--Вставка сюда через дата атрибут при рендере-->
+                        <b>1550$ / 7 day</b>
+                    </div>
+                </div>
+                <div class="tour__description">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        Corporis debitis dicta dignissimos dolor, eligendi esse et
+                        minima molestiae natus odit officiis perspiciatis provident reiciendis,
+                        rem reprehenderit sint velit veniam voluptas.
+                    </p>
+                    <a href="#" target="_blank" class="callback__btn">Посмотреть тур</a>
+                </div>
+            </div>
+            <div class="tour tour-features color-sea" data-features="Романтик" data-country="Франция" data-price="500">
+                <div class="tour__visible">
+                    <div class="tour__img-container">
+                        <img src="../img/tour.jpg" alt="egypt" width="600" height="200" class="tour__img">
+                    </div>
+                    <div class="tour__price">
+                        <b>1550$ / 7 day</b>
+                    </div>
+                </div>
+                <div class="tour__description">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        Corporis debitis dicta dignissimos dolor, eligendi esse et
+                        minima molestiae natus odit officiis perspiciatis provident reiciendis,
+                        rem reprehenderit sint velit veniam voluptas.
+                    </p>
+                    <a href="#" target="_blank" class="callback__btn">Посмотреть тур</a>
+                </div>
+            </div>
+            <div class="tour tour-features color-top" data-features="Топ направление" data-country="Турция"
+                 data-price="2000">
+                <div class="tour__visible">
+                    <div class="tour__img-container">
+                        <img src="../img/tour.jpg" alt="egypt" width="600" height="200" class="tour__img">
+                    </div>
+                    <div class="tour__price">
+                        <b>1550$ / 7 day</b>
+                    </div>
+                </div>
+                <div class="tour__description">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        Corporis debitis dicta dignissimos dolor, eligendi esse et
+                        minima molestiae natus odit officiis perspiciatis provident reiciendis,
+                        rem reprehenderit sint velit veniam voluptas.
+                    </p>
+                    <a href="#" target="_blank" class="callback__btn">Посмотреть тур</a>
+                </div>
+            </div>
+            <div class="tour color-desert" data-country="Германия" data-price="930">
+                <div class="tour__visible">
+                    <div class="tour__img-container">
+                        <img src="../img/tour.jpg" alt="egypt" width="600" height="200" class="tour__img">
+                    </div>
+                    <div class="tour__price">
+                        <b>1550$ / 7 day</b>
+                    </div>
+                </div>
+                <div class="tour__description">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        Corporis debitis dicta dignissimos dolor, eligendi esse et
+                        minima molestiae natus odit officiis perspiciatis provident reiciendis,
+                        rem reprehenderit sint velit veniam voluptas.
+                    </p>
+                    <a href="#" target="_blank" class="callback__btn">Посмотреть тур</a>
+                </div>
+            </div>
+            <div class="tour tour-features color-sale" data-features="Романтик" data-country="Египет"
+                 data-price="1050">
+                <div class="tour__visible">
+                    <div class="tour__img-container">
+                        <img src="../img/tour.jpg" alt="egypt" width="600" height="200" class="tour__img">
+                    </div>
+                    <div class="tour__price">
+                        <b>1550$ / 7 day</b>
+                    </div>
+                </div>
+                <div class="tour__description">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        Corporis debitis dicta dignissimos dolor, eligendi esse et
+                        minima molestiae natus odit officiis perspiciatis provident reiciendis,
+                        rem reprehenderit sint velit veniam voluptas.
+                    </p>
+                    <a href="#" target="_blank" class="callback__btn">Посмотреть тур</a>
+                </div>
+            </div>
+            <div class="tour tour-features color-sea" data-features="Детские туры" data-country="Франция"
+                 data-price="2200">
+                <div class="tour__visible">
+                    <div class="tour__img-container">
+                        <img src="../img/tour.jpg" alt="egypt" width="600" height="200" class="tour__img">
+                    </div>
+                    <div class="tour__price">
+                        <b>1550$ / 7 day</b>
+                    </div>
+                </div>
+                <div class="tour__description">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        Corporis debitis dicta dignissimos dolor, eligendi esse et
+                        minima molestiae natus odit officiis perspiciatis provident reiciendis,
+                        rem reprehenderit sint velit veniam voluptas.
+                    </p>
+                    <a href="#" target="_blank" class="callback__btn">Посмотреть тур</a>
+                </div>
+            </div>
+            <div class="tour tour-features color-sale" data-features="Скидка" data-country="Египет"
+                 data-price="1800">
+                <div class="tour__visible">
+                    <div class="tour__img-container">
+                        <img src="../img/tour.jpg" alt="egypt" width="600" height="200" class="tour__img">
+                    </div>
+                    <div class="tour__price">
+                        <b>1550$ / 7 day</b>
+                    </div>
+                </div>
+                <div class="tour__description">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        Corporis debitis dicta dignissimos dolor, eligendi esse et
+                        minima molestiae natus odit officiis perspiciatis provident reiciendis,
+                        rem reprehenderit sint velit veniam voluptas.
+                    </p>
+                    <a href="#" target="_blank" class="callback__btn">Посмотреть тур</a>
+                </div>
+            </div>
+            <div class="tour tour-features color-sea" data-features="Романтик" data-country="Франция"
+                 data-price="1900">
+                <div class="tour__visible">
+                    <div class="tour__img-container">
+                        <img src="../img/tour.jpg" alt="egypt" width="600" height="200" class="tour__img">
+                    </div>
+                    <div class="tour__price">
+                        <b>1550$ / 7 day</b>
+                    </div>
+                </div>
+                <div class="tour__description">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        Corporis debitis dicta dignissimos dolor, eligendi esse et
+                        minima molestiae natus odit officiis perspiciatis provident reiciendis,
+                        rem reprehenderit sint velit veniam voluptas.
+                    </p>
+                    <a href="#" target="_blank" class="callback__btn">Посмотреть тур</a>
+                </div>
+            </div>
+            <div class="tour tour-features color-top" data-features="Топ направление" data-country="Турция"
+                 data-price="1300">
+                <div class="tour__visible">
+                    <div class="tour__img-container">
+                        <img src="../img/tour.jpg" alt="egypt" width="600" height="200" class="tour__img">
+                    </div>
+                    <div class="tour__price">
+                        <b>1550$ / 7 day</b>
+                    </div>
+                </div>
+                <div class="tour__description">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        Corporis debitis dicta dignissimos dolor, eligendi esse et
+                        minima molestiae natus odit officiis perspiciatis provident reiciendis,
+                        rem reprehenderit sint velit veniam voluptas.
+                    </p>
+                    <a href="#" target="_blank" class="callback__btn">Посмотреть тур</a>
+                </div>
+            </div>
+            <div class="tour color-desert" data-country="Германия" data-price="1500">
+                <div class="tour__visible">
+                    <div class="tour__img-container">
+                        <img src="../img/tour.jpg" alt="egypt" width="600" height="200" class="tour__img">
+                    </div>
+                    <div class="tour__price">
+                        <b>1550$ / 7 day</b>
+                    </div>
+                </div>
+                <div class="tour__description">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        Corporis debitis dicta dignissimos dolor, eligendi esse et
+                        minima molestiae natus odit officiis perspiciatis provident reiciendis,
+                        rem reprehenderit sint velit veniam voluptas.
+                    </p>
+                    <a href="#" target="_blank" class="callback__btn">Посмотреть тур</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<footer>
+    <div class="container">
+        <div class="footer__logo">
+            <img class="footer__logo" src="../img/logo/logo-white.png" width="231" height="65">
+        </div>
+        <section class="footer__subscribe">
+            <h3>Подписывайтесь на нашу россылку</h3>
+            <form>
+                <input type="email" placeholder="Введите ваш e-mail" required>
+                <input type="submit" value="Отправить" class="black__btn">
+            </form>
+        </section>
+        <section class="footer__social">
+            <h3>Мы в соц сетях</h3>
+            <div class="social__btn-container">
+                <a class="social__btn icon i-facebook" href="#" target="_blank"></a>
+                <a class="social__btn icon i-twitter" href="#" target="_blank"></a>
+                <a class="social__btn icon i-instagram" href="#" target="_blank"></a>
+                <a class="social__btn icon i-tripadwisor" href="#" target="_blank"></a>
+            </div>
+        </section>
+        <div class="footer__copyright">
+            <span>2018 "Go Away" Travel Company</span></div>
+    </div>
+</footer>
+<![if IE]>
+<script src="../js/jquery-1.12.4.js"></script>
+<script src="../js/jquery-ui.js"></script>
+<script>
+    $( function() {
+        $( "#dateIn" ).datepicker();
+    } );
+    $( function() {
+        $( "#dateOut" ).datepicker();
+    } );
+</script>
+<![endif]>
+<script src="../js/main.js"></script>
+<script>
+    modalWindow('#modalCallback-b', '#modalCallback-w');
+</script>
+</body>

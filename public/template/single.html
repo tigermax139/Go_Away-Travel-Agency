@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <!--favicon-->
+    <link rel="apple-touch-icon" sizes="180x180" href="../img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../img/favicons/favicon-16x16.png">
+    <link rel="manifest" href="../img/favicons/manifest.json">
+    <link rel="mask-icon" href="../img/favicons/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
+    <!--meta tag-->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width">
+    <!--style-->
+    <link rel="stylesheet" href="../style/fonts.css">
+    <link rel="stylesheet" href="../style/general.css">
+    <link rel="stylesheet" href="../style/sprites.css">
+    <link rel="stylesheet" href="../style/media.css">
+    <title>Go Away Travel Agency</title>
+</head>
+<body>
+<header class="container-fluid">
+    <nav class="container navbar">
+        <a class="logo" href="#"><img src="../img/logo/logo.png" width="225" height="65"></a>
+        <input type="checkbox" id="burgerMenu">
+        <label for="burgerMenu" class="burger-label">
+            <span class="burger-label__item"></span>
+            <span class="burger-label__item"></span>
+            <span class="burger-label__item"></span>
+        </label>
+        <ul class="nav">
+            <li><a href="#">Главная</a></li>
+            <li class="sub-menu">
+                <a href="tours" class="sub-menu__btn" onclick="dropDown('#dropdown-1')">Туры</a>
+                <ul class="sub-menu__container sub-menu-js" id="dropdown-1">
+                    <li class="sub-menu__item"><a href="#">Горячие туры</a></li>
+                    <li class="sub-menu__item"><a href="#">Топ направления</a></li>
+                    <li class="sub-menu__item"><a href="#">Все туры</a></li>
+                </ul>
+            </li>
+            <li class="sub-menu" >
+                <a href="#" class="sub-menu__btn" onclick="dropDown('#dropdown-2')">Услуги</a>
+                <ul class="sub-menu__container" id="dropdown-2">
+                    <li class="sub-menu__item"><a href="#">Визы</a></li>
+                    <li class="sub-menu__item"><a href="#">Страховки</a></li>
+                    <li class="sub-menu__item"><a href="#">Все услуги</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Контакты</a></li>
+            <li><a href="#">Отзывы</a></li>
+            <li class="callback">
+                <button class="callback__btn" id="modalCallback-b" data-target="#modalCallback-c">Заказать звонок</button>
+            </li>
+        </ul>
+    </nav>
+</header>
+<!--MODAL CALLBACK WINDOW BEGIN-->
+<div class="modal container-fluid " id="modalCallback-w">
+    <div class="modal__container container">
+        <div class="modal__title">
+            <b>
+                Заполните пожалуйста все поля заявки, и наш менеджер
+                обезательно с вами свяжеться!
+            </b>
+        </div>
+        <form action="#" method="post" class="modal__form">
+            <label for="customerName" class="modal__form-item">
+                Как к вам можно обращаться?
+            </label>
+            <input type="text" class="modal__form-item" name="customerName" id="customerName" placeholder="Имя"
+                   pattern="^[A-Za-zА-Яа-яЁё]+$" required>
+            <label for="customerNumber" class="modal__form-item">
+                Ваш номер телефона
+            </label>
+            <input type="tel" class="modal__form-item" id="customerNumber" name="customerNumber" placeholder="+38000000000"
+                   minlength="10" maxlength="13" required>
+            <textarea name="customerMessage" id="customerMessage" class="modal__form-item" cols="30" rows="10"
+                      placeholder="Здесь можете написать свой коментарий"></textarea>
+            <input type="submit" class="callback__btn" value="Заказать звонок" >
+        </form>
+        <button class="callback__btn modal-close">
+            <img src="../img/icons/multiply.png" alt="cross">
+        </button>
+    </div>
+</div>
+<!--MODAL CALLBACK WINDOW END  -->
+<main>
+    <section class="container-fluid hero">
+        <h1 class="company__name page__name">tour Name</h1>
+    </section>
+    <section class="container-fluid breadcrumbs">
+        <ul class="container breadcrumbs__container">
+            <li><a href="index" class="breadcrumbs__item">Главная</a></li>
+            <li><a href="tours" class="breadcrumbs__item">Все туры</a></li>
+            <li><a href="tours/country/country" class="breadcrumbs__item">Египет</a></li>
+            <li><span>Tour name</span></li>
+        </ul>
+    </section>
+    <section class="container-fluid common">
+        <div class="container">
+            <div class="common__description">
+                <h2 class="section__description">
+                   tour name
+                </h2>
+                <p>
+                    tour content
+                </p>
+                <span class="common__price">
+                    tour Prise $/ 7 дней
+                </span>
+            </div>
+        </div>
+    </section>
+    <section class="container-fluid hotels">
+        <div class="container">
+            output all hotels
+        </div>
+    </section>
+</main>
+<footer>
+    <div class="container">
+        <div class="footer__logo">
+            <img class="footer__logo" src="../img/logo/logo-white.png" width="231" height="65">
+        </div>
+        <section class="footer__subscribe">
+            <h3>Подписывайтесь на нашу россылку</h3>
+            <form>
+                <input type="email" placeholder="Введите ваш e-mail" required>
+                <input type="submit" value="Отправить" class="black__btn">
+            </form>
+        </section>
+        <section class="footer__social">
+            <h3>Мы в соц сетях</h3>
+            <div class="social__btn-container">
+                <a class="social__btn icon i-facebook" href="#" target="_blank"></a>
+                <a class="social__btn icon i-twitter" href="#" target="_blank"></a>
+                <a class="social__btn icon i-instagram" href="#" target="_blank"></a>
+                <a class="social__btn icon i-tripadwisor" href="#" target="_blank"></a>
+            </div>
+        </section>
+        <div class="footer__copyright">
+            <span>2018 "Go Away" Travel Company</span></div>
+    </div>
+</footer>
+<script src="../js/main.js"></script>
+<script>
+    modalWindow('#modalCallback-b', '#modalCallback-w');
+</script>
+</body>
+</html>

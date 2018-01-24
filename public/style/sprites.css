@@ -1,0 +1,129 @@
+.flag {
+	background: url('../img/icons/flag/sprites.png') no-repeat;
+}
+
+.f-germany{
+	background-position: 0 -258px ;
+	width: 64px;
+	height: 64px;
+}
+
+.f-paraguay{
+	background-position: 0 -193px ;
+	width: 64px;
+	height: 64px;
+}
+
+.f-spain{
+	background-position: 0 -128px ;
+	width: 64px;
+	height: 64px;
+}
+
+.f-turkey{
+	background-position: 0 -65px ;
+	width: 64px;
+	height: 64px;
+}
+
+.f-uae{
+	background-position: 0 -321px ;
+	width: 64px;
+	height: 64px;
+}
+
+.f-u{
+	background-position: 0 -384px ;
+	width: 64px;
+	height: 64px;
+}
+
+.f-egypt{
+	background-position: -64.99999618530273px 0;
+	width: 64px;
+	height: 64px;
+}
+
+.f-france{
+	background-position: 0 0;
+	width: 64px;
+	height: 64px;
+}
+
+
+.icon{
+	background: url(../img/icons/sprites.png) no-repeat;
+}
+
+.i-avatar{
+	background-position: -23.000003814697266px -53px ;
+	width: 24px;
+	height: 24px;
+}
+
+.i-baby{
+	background-position: 0 -54px ;
+	width: 24px;
+	height: 24px;
+}
+
+.i-map{
+	background-position: -29.000003814697266px -80px ;
+	width: 24px;
+	height: 24px;
+}
+
+.i-plane{
+	background-position: 0 -80px ;
+	width: 24px;
+	height: 24px;
+}
+
+.i-search{
+	background-position: -0.000003814697265625px 0;
+	width: 24px;
+	height: 24px;
+}
+
+.i-tripadwisor{
+	background-position: -29.987499237060547px -25px ;
+	width: 24px;
+	height: 24px;
+}
+
+.i-twitter{
+	background-position: -78.98749923706055px -24px ;
+	width: 24px;
+	height: 24px;
+}
+
+.down-arrow{
+	background-position: -58.999996185302734px 0;
+	width: 16px;
+	height: 16px;
+}
+
+.i-facebook{
+	background-position: -53.98749923706055px -26px ;
+	width: 24px;
+	height: 24px;
+}
+
+.infinity{
+	background-position: -79.98749923706055px 0;
+	width: 16px;
+	height: 16px;
+}
+
+.i-instagram{
+	background-position: -1.9749984741210938px -26px ;
+	width: 24px;
+	height: 24px;
+}
+
+.multiply{
+	background-position: -34.999996185302734px -1px ;
+	width: 16px;
+	height: 16px;
+}
+
