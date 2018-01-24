@@ -708,6 +708,9 @@ a.breadcrumbs__item:hover {
 .ticket__title {
 	text-align: center;
 }
+.ticket__title .section__description {
+	color: white;
+}
 .ticket__container {
 	padding: 20px 50px;
 	border-left: 30px dotted white;
@@ -743,6 +746,50 @@ a.breadcrumbs__item:hover {
 .ticket__img {
 	width: 50%;
 	height: auto;
+}
+.ticket__btn {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+	border-top: 1px solid gray;
+	border-bottom: 1px solid gray;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+.btn__text {
+	width: 100%;
+	display: block;
+}
+.ticket__btn-item {
+	position: relative;
+}
+.ticket__btn-item img {
+	display: block;
+	position: absolute;
+	left: 50%;
+	top: 0;
+	opacity: 0;
+	transform: scale(0) translateX(-60%) ;
+}
+.ticket__btn-item:hover img {
+	opacity: 1;
+	transform: scale(1) translateX(-50%) translateY(18%);
+
+	transition: 0.2s;
+}
+.ticket__btn-item:hover .btn__text {
+	opacity: 0;
+	transform: scale(0);
+
+	transition: 0.2s;
+}
+.ticket__btn-item:active {
+	transform: scale(1.1);
+	transition: 0.2s;
 }
 /**********PAGINATOR**********/
 .paginator {
@@ -892,6 +939,33 @@ footer .container {
 	transition: 0.5s linear;
 
 }
+.btn-error,
+.btn-success,
+.btn-just{
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	padding: 7px 10px;
+	color: white;
+	font-size: 16px;
+	line-height: 20px;
+	text-transform: uppercase;
+	text-decoration: none;
+	border-width: 1px;
+	border-style: solid;
+}
+.btn-just {
+	border-color: #005d8f;
+	background-color: #8989c7;
+}
+.btn-error {
+	background-color: #c77470;
+	border-color: red;
+}
+.btn-success {
+	background-color: #83c771;
+	border-color: green;
+}
 .border-green {
 	border: 3px solid green;
     border-radius: 10px;
@@ -910,6 +984,9 @@ footer .container {
 }
 .display-none-price {
 	display: none;
+}
+.tac {
+	text-align: center;
 }
 /****ANIMATION******/
 @keyframes anim-to-down {

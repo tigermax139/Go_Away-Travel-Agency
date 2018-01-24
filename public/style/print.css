@@ -1,0 +1,25 @@
+@media print {
+    body > * {
+        display: none;
+    }
+    .ticket__btn {
+        display: none;
+    }
+    .ticket {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 1190px;
+        max-width: 100%;
+
+        color: black !important;
+
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+
+        margin: 0;
+        padding: 0 10%;
+
+        transform: rotate(90deg) translateX(35%);
+    }
+}

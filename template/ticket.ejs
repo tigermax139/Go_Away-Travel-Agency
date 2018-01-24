@@ -17,10 +17,11 @@
     <link rel="stylesheet" href="../style/general.css">
     <link rel="stylesheet" href="../style/sprites.css">
     <link rel="stylesheet" href="../style/media.css">
+    <link rel="stylesheet" href="../style/print.css">
     <title>Go Away Travel Agency</title>
 </head>
 <body>
-<h1>Ваш заказ</h1>
+<h1 class="tac">Ваш заказ успешно оформлен</h1>
 <div class="ticket">
     <div class="ticket__container">
         <div class="ticket__top">
@@ -75,9 +76,18 @@
     </div>
 </div>
 <div class="ticket__btn">
-    <a href="/delete/<%= order._id %>"> Нашел ошыбку, заказать снова</a>
-
-    <button type="button" onclick="window.print()">печать билета</button>
+    <a href="/delete/<%= order._id %>" class="btn-error ticket__btn-item tac">
+        <span class="btn__text">Нашел ошибку</span>
+        <img src="../img/icons/cross.png" alt="delete" title="Удалить билет">
+    </a>
+    <button type="button" onclick="window.print()" class="btn-print btn-success tac ticket__btn-item">
+        <span class="btn__text">Роспечатать билет</span>
+        <img src="../img/icons/printer.png" alt="printer" title="Print this page">
+    </button>
+    <a href="/index" class="btn-just ticket__btn-item tac">
+        <span class="btn__text">На главную</span>
+        <img src="../img/icons/home.png" alt="to home" title="Back to home">
+    </a>
 </div>
 <script src="../js/qrcode.min.js"></script>
 <script src="../js/jquery.min.js"></script>
