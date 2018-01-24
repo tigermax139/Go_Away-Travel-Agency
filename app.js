@@ -145,12 +145,14 @@ app.post('/createHotel', (req, res) => {
         });
     });
 });
+
 //Search
 app.post('/search', (req, res) => {
-    //const {result} = req.body;
-    const id = String(req.body.ticketId);
-    console.log(id);
-    MongoClient.connect(urlDB, (err, db) => {
+    //тянем из боди ИД билета
+    const str = req.body.ticketId;
+    //конвертируем строку в objectId
+    const id = objectId(str);
+      MongoClient.connect(urlDB, (err, db) => {
         db.collection("orders").find({_id: id}).toArray((err, oneOrder) => {
             console.log(oneOrder);
             if (err) {
@@ -158,10 +160,11 @@ app.post('/search', (req, res) => {
             }
             if(oneOrder.length === 0){
                 res.redirect('/index');
+            }else {
+                res.render('ticket', {
+                    oneOrder
+                });
             }
-            res.render('ticket', {
-                oneOrder
-            });
             db.close();
         });
     });
@@ -245,6 +248,7 @@ app.get('/delete/:id', (req, res) => {
 /*********LISTENER************/
 app.use((req, res, next) => {
     res.send('ERROR 404');
+    //res.render('index');
     next();
 });
 
