@@ -22,10 +22,11 @@ Before start you need installed:
 by next command
 >node app
 - If console is text "App Started", all is ok!
+- Else you need check the correctness of the previous steps
 
 #### Author
 ***Bohdan Yurchuk***
-Contacts
+* Contacts
 * ****[Mail](mailto:yurchuck.dev@gmail.com)****
 * ****[FB](https://www.facebook.com/profile.php?id=100008410683155)****
 * You can ask me about project at all time
