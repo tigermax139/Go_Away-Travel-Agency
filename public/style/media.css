@@ -45,6 +45,11 @@
     }
 
 }
+@media screen and (max-width: 1100px){
+    .tour-short .tour {
+        flex-basis: 49%;
+    }
+}
 @media screen and (max-width:900px){
     .callback__btn {
         padding: 10px;
@@ -58,7 +63,7 @@
         position: relative;
     }
     .navbar .logo {
-        flex-basis: 100%;
+        flex-basis: 51%;
     }
     .burger-label {
         display: block;
@@ -88,6 +93,7 @@
     }
     #burgerMenu:checked + .burger-label {
         padding: 15px;
+        padding-left: 5px;
     }
     #burgerMenu:checked + .burger-label .burger-label__item:first-child  {
         transform: rotate(-45deg) translateY(6px);
@@ -104,7 +110,7 @@
     #burgerMenu:checked + .burger-label .burger-label__item:last-child  {
         margin-bottom: 0;
         transform-origin: center;
-        transform: rotate(45deg) translateY(-6px);
+        transform: rotate(45deg) translateY(-9px);
         transition: 1s all;
     }
     #burgerMenu:checked ~ .nav{
@@ -133,6 +139,11 @@
     .video__description {
         padding: 7% 0;
     }
+    .video__description .company__name {
+        line-height: 2.2em;
+
+        font-size: 100px;
+    }
 
     /**Common*/
     .common__description {
@@ -145,7 +156,9 @@
         align-content: space-between;
     }
     .info-box {
-        flex-wrap: wrap;
+        flex-basis: 60%;
+        flex-direction: column;
+        align-items: stretch;
     }
     .info-box__life {
         margin-right: 0;
@@ -176,7 +189,29 @@
         width: auto;
     }
 }
-
+/*Перестройка карточек товара*/
+@media screen and (max-width: 840px){
+    .tours__filter {
+        flex-direction: column-reverse;
+        align-items: initial;
+    }
+    .tours__sort {
+        justify-content: flex-start;
+        margin-bottom: 15px;
+    }
+    .tour img {
+        width: 100%;
+        height: auto;
+    }
+    .tour-short .tour img{
+        width: auto;
+    }
+}
+@media screen and (max-width:800px){
+    .tour-short {
+        flex-direction: column;
+    }
+}
 @media screen and (max-width:760px) {
     .video {
         background-image: url("../img/poster.jpg");
@@ -186,8 +221,28 @@
     .video__container {
         display: none;
     }
+    .info-box {
+        flex-basis: 75%;
+    }
+    .common {
+        padding-bottom: 0;
+    }
+    .diving__content {
+        flex-basis: 95%;
+        padding-top: 200px;
+    }
+    .filter__form .callback__btn {
+        width: 20%;
+    }
 }
 @media screen and (max-width: 530px) {
+    .navbar .logo img {
+        width: 100%;
+        height: auto;
+    }
+    .filter__form .callback__btn {
+        width: 30%;
+    }
     .ticket__btn {
         flex-direction: column;
         align-items: stretch;
@@ -203,6 +258,11 @@
     }
 }
 @media screen and (max-width:400px) {
+    .video__description .company__name {
+        line-height: 2em;
+        margin-top: 1em;
+        font-size: 70px;
+    }
     .footer__subscribe form {
         margin-left: 0;
         flex-wrap: wrap;
