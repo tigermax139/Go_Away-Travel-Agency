@@ -26,72 +26,120 @@
             </div>
         </div>
     </section>
-    <section class="container-fluid cost">
-        <h2 class="section__description">
-            ЗАПОЛНИТЕ ФОРМУ ДЛЯ РАСЧЕТА СТОИМОСТИ ГОСТИНИЦЫ
-        </h2>
-        <form class="cost__form" action="#" method="post">
-            <label for="dateIn">
-                Введите дату заезда
-                <input type="text" id="dateIn" name="dateIn"
-                       title="Введите дату заезда" required>
-            </label>
-            <label for="dateOut">
-                Введите дату возвращения
-                <input type="text" id="dateOut" name="dateOut"
-                       title="Введите дату возвращения" required>
-            </label>
-            <label for="adult">
-                <input type="number" id="adult" name="adult" min="1" max="10"
-                       value="2" required>
-            </label>
-            <label for="children">
-                <input type="number" id="children" name="children" min="0" max="10"
-                       value="0" required>
-            </label>
-            <label for="room">
-                <select name="room" id="room">
-                    <option value="1">Економ</option>
-                    <option value="1.3">Улучшенный</option>
-                    <option value="1.7">Люкс</option>
-                </select></label>
-            <!--<label for="eat">-->
-                <!--Включить в стоимость завтраки?-->
-                <!--<input type="checkbox" name="eat" id="eat"-->
-                       <!--title="Включить в стоимость завтраки?">-->
-            <!--</label>-->
-            <button type="button" title="Пока вы не нажмете, возле готеля будет указана
+    <!--Оболочка для слайдера контента-->
+    <div class="slider">
+        <div class="slider__wrapper container">
+            <section class="cost slider__visible">
+                <h2 class="section__description">
+                    ЗАПОЛНИТЕ ФОРМУ ДЛЯ РАСЧЕТА СТОИМОСТИ ГОСТИНИЦЫ
+                </h2>
+                <form class="cost__form" action="#" method="post">
+                    <label for="dateIn" class="cost__label">
+                        Введите дату заезда
+                        <input type="text" class="cost__input" id="dateIn" name="dateIn"
+                               title="Введите дату заезда" required>
+                    </label>
+                    <label for="dateOut" class="cost__label">
+                        Введите дату возвращения
+                        <input type="text" class="cost__input" id="dateOut" name="dateOut"
+                               title="Введите дату возвращения" required>
+                    </label>
+                    <label for="adult" class="cost__label">
+                        Количество взрослых
+                        <input type="number" class="cost__input" id="adult" name="adult" min="1" max="10"
+                               value="2" required>
+                    </label>
+                    <label for="children" class="cost__label">
+                        Количество детей
+                        <input type="number" class="cost__input" id="children" name="children" min="0" max="10"
+                               value="0" required>
+                    </label>
+                    <label for="room" class="cost__label">
+                        <select name="room" class="cost__select" id="room">
+                            <option value="1">Економ</option>
+                            <option value="1.3">Улучшенный</option>
+                            <option value="1.7">Люкс</option>
+                        </select></label>
+                    <!--<label for="eat">-->
+                    <!--Включить в стоимость завтраки?-->
+                    <!--<input type="checkbox" name="eat" id="eat"-->
+                    <!--title="Включить в стоимость завтраки?">-->
+                    <!--</label>-->
+                    <button type="button" class="btn-just cost__btn" title="Пока вы не нажмете, возле готеля будет указана
             цена одной ночи для одного человека!" onclick="hotelCost()">
-                Узнать цену
-            </button>
-        </form>
-    </section>
-    <section class="container-fluid hotels">
-        <div class="container">
-            <% hotels.forEach((hotel, index) => { %>
-                <div class="hotel" id="<%= hotel.hotelName %>" data-price="<%= hotel.hotelPrice %>" data-order="">
-                    <h3 class="hotel__title">
-                        <%= hotel.hotelName %>
-                    </h3>
-                    <div class="hotel__stars" data-stars="<%= hotel.hotelStar %>">
-
-                    </div>
-                    <div class="hotel__img">
-                        <img src="../img/hotels/<%= hotel.hotelImg %>" alt="<%= hotel.hotelName %>">
-                    </div>
-                    <div class="hotel__description">
-                        <%= hotel.hotelDescription %>
-                    </div>
-                    <div class="hotel__price">
-                        Стоимость:<b> <%= hotel.hotelPrice %>$</b>
-                    </div>
-                    <button class="callback__btn" onclick="booking('<%= hotel.hotelName %>')">
-                        Бронировать
+                        Узнать цену
                     </button>
+                </form>
+            </section>
+            <section class="hotels">
+                <div class="container">
+                    <% hotels.forEach((hotel, index) => { %>
+                    <div class="hotel" id="<%= hotel.hotelName %>" data-price="<%= hotel.hotelPrice %>" data-order="">
+                        <h3 class="hotel__title">
+                            <%= hotel.hotelName %>
+                        </h3>
+                        <div class="hotel__stars" data-stars="<%= hotel.hotelStar %>">
+
+                        </div>
+                        <div class="hotel__img">
+                            <img src="../img/hotels/<%= hotel.hotelImg %>" alt="<%= hotel.hotelName %>">
+                        </div>
+                        <div class="hotel__description">
+                            <%= hotel.hotelDescription %>
+                        </div>
+                        <div class="hotel__price">
+                            Стоимость:<b> <%= hotel.hotelPrice %>$</b>
+                        </div>
+                        <button class="callback__btn" onclick="booking('<%= hotel.hotelName %>')">
+                            Бронировать
+                        </button>
+                    </div>
+                    <% }); %>
                 </div>
-            <% }); %>
+            </section>
+            <section class="booking">
+                <div class="modal__title">
+                    <b>
+                        Заполните пожалуйста все поля
+                    </b>
+                </div>
+                <form action="/ticket" method="post" class="cost__form" id="order">
+                    <label for="name" class="cost__label">
+                        Ваше имя
+                        <input type="text" class="cost__input" name="name" id="name" required>
+                    </label>
+                    <label for="number" class="cost__label">
+                        Ваш номер телефона
+                        <input type="tel" class="cost__input" id="number" name="number"
+                               placeholder="+38000000000"
+                               minlength="10" maxlength="13" required>
+                    </label>
+                    <label for="email" class="cost__label">
+                        Ваша почта
+                        <input type="email" class="cost__input" id="email" name="email"
+                               required>
+                    </label>
+                    <label for="message" class="cost__label">
+                        Коментарии к заказу
+                        <textarea name="message" id="message" class="cost__textarea" cols="30" rows="10"
+                                  placeholder="Здесь можете написать свой коментарий"></textarea>
+                    </label>
+                    <input type="text" id="orderPrice" class="cost__output" name="orderPrice" readonly>
+                    <input type="hidden" id="orderAdult" name="orderAdult" readonly>
+                    <input type="hidden" id="orderChildren" name="orderChildren" readonly>
+                    <input type="hidden" id="orderDateIn" name="orderDateIn" readonly>
+                    <input type="hidden" id="orderDateOut" name="orderDateOut" readonly>
+                    <input type="hidden" id="orderHotel" name="orderHotel" readonly>
+                    <input type="hidden" id="orderRoom" name="orderRoom" readonly>
+                    <input type="hidden" id="orderTour" name="orderTour" value="<%= tour.tourName %>" readonly>
+                    <input type="hidden" id="orderCountry" name="orderCountry"
+                           value="<%= tour.tourCountry %>" readonly>
+                    <button type="submit" class="btn-just cost__btn"> Заказать </button>
+                </form>
+            </section>
         </div>
-    </section>
+    </div>
+
     <!--Modal Window for Client BEGIN-->
     <div class="modal container-fluid " id="modalBooking">
         <div class="modal__container container">
@@ -150,4 +198,5 @@
         $( "#dateOut" ).datepicker();
     } );
 </script>
+<script src="../js/booking.js"></script>
 <% include footer %>

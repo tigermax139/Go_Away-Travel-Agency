@@ -20,9 +20,17 @@
                         <img src="../img/country/<%= tour.tourImg %>" alt="<%= tour.tourCountry %>" width="600"
                              height="200" class="tour__img">
                     </div>
-                    <div class="tour__price">
-                        <b><%= tour.tourPrice %>$ / 7 day</b>
+                    <div class="tour__title">
+                        <div class="tour__country">
+
+                            <b><%= tour.tourName %></b>
+                        </div>
+                        <div class="tour__price">
+
+                            <b><%= tour.tourPrice %>$ / 7 day</b>
+                        </div>
                     </div>
+
                 </div>
                 <div class="tour__description">
                     <p>
@@ -32,7 +40,6 @@
                 </div>
             </div>
             <% }); %>
-
         </div>
         <ul class="paginator">
             <% for (var i = 1; i <= maxPage; i++) { %>
@@ -47,4 +54,5 @@
         </ul>
     </div>
 </section>
+<script src="../js/tours.js"></script>
 <% include footer %>

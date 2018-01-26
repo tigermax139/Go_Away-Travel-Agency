@@ -110,11 +110,11 @@ header {
 	list-style-image: url("../img/icons/sun.png");
 	list-style-position: outside;
 	display: none;
-
+	padding-top: 40px;
 	position: absolute;
 	left: 0;
 	right: 0;
-	top: 65px;
+	top: 30px;
 }
 .callback__btn {
 	display: block;
@@ -839,6 +839,101 @@ a.breadcrumbs__item:hover {
 	transform: scale(1.1);
 	transition: 0.1s all;
 }
+/***********SINGLE***********/
+.slider__wrapper {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: flex-start;
+	flex-wrap: nowrap;
+
+	overflow: hidden;
+
+	position: relative;
+}
+.cost,
+.hotels,
+.booking {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+
+	opacity: 0;
+	transform: scale(0);
+
+	position: absolute;
+}
+.slider__visible {
+	position: static;
+	opacity: 1;
+	transform: scale(1);
+	transition: 0.8s;
+}
+.slider__hidden {
+	transform: translateX(-200%);
+	transition: 0.5s;
+}
+.cost .section__description {
+	margin-bottom: 40px;
+}
+.cost__form {
+	max-width: 60%;
+	width: 50%;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+
+	margin-bottom: 80px;
+}
+.cost__input,
+.cost__label {
+	display: block;
+	width: 100%;
+}
+.cost__label {
+	margin-bottom: 25px;
+}
+.cost__input,
+.cost__select {
+	border: none;
+	border-bottom: 1px solid #005d8f;
+	color: black;
+	font-size: 16px;
+	font-weight: bold;
+
+	padding: 5px 10px;
+}
+.cost__input:hover,
+.cost__select:hover {
+	-webkit-box-shadow: 0 5px 20px 0 rgba(135,138,176,1);
+	-moz-box-shadow: 0 5px 20px 0 rgba(135,138,176,1);
+	box-shadow: 0 5px 20px 0 rgba(135,138,176,1);
+
+	transition: 0.2s;
+}
+.cost__input:focus,
+.cost__select:focus {
+	border-bottom: 2px solid #003eff;
+
+	outline: none;
+	transition: 0.2s;
+}
+.cost__btn {
+	margin: 0 auto;
+}
+.cost__btn:hover,
+.cost__btn:focus {
+	background-color: #005d8f;
+	transition: 0.2s;
+}
+.cost__btn:active {
+	transform: scale(1.1);
+	transition: 0.3s;
+}
 /*************FOOTER*********/
 footer {
 	background-color: #005d8f;
@@ -1007,6 +1102,11 @@ footer .container {
 		transform: translateY(0px);
 	}
 }
+@keyframes anim-to-left {
+	to {
+		transform: translateX(0px);
+	}
+}
 @keyframes bonce {
 	from{
 		transform: translateY(0) scale(1);
@@ -1037,7 +1137,6 @@ footer .container {
 		opacity: 0;
     }
 }
-
 /********ADMIN*******/
 .admin__form {
 	padding-top: 100px;

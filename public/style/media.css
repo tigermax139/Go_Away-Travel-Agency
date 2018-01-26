@@ -6,14 +6,14 @@
     .burger-label {
         display: none;
     }
-    .sub-menu:hover ul {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
+    /*.sub-menu:hover ul {*/
+        /*display: flex;*/
+        /*flex-direction: column;*/
+        /*justify-content: space-around;*/
 
-        background-color: rgba(0,0,0, 0.7);
-        width: 300%;
-    }
+        /*background-color: rgba(0,0,0, 0.7);*/
+        /*width: 300%;*/
+    /*}*/
     .sub-menu-show-labtop {
         display: flex;
         flex-direction: column;
@@ -63,7 +63,7 @@
         position: relative;
     }
     .navbar .logo {
-        flex-basis: 51%;
+        flex-basis: 100%;
     }
     .burger-label {
         display: block;
@@ -139,7 +139,7 @@
     .video__description {
         padding: 7% 0;
     }
-    .video__description .company__name {
+    .company__name {
         line-height: 2.2em;
 
         font-size: 100px;
@@ -191,6 +191,9 @@
 }
 /*Перестройка карточек товара*/
 @media screen and (max-width: 840px){
+    .tours__container.container {
+        padding: 10px 0;
+    }
     .tours__filter {
         flex-direction: column-reverse;
         align-items: initial;
@@ -200,11 +203,8 @@
         margin-bottom: 15px;
     }
     .tour img {
-        width: 100%;
+        width: 102%;
         height: auto;
-    }
-    .tour-short .tour img{
-        width: auto;
     }
 }
 @media screen and (max-width:800px){
@@ -235,11 +235,12 @@
         width: 20%;
     }
 }
-@media screen and (max-width: 530px) {
-    .navbar .logo img {
-        width: 100%;
-        height: auto;
+@media screen and (max-width: 640px) {
+    .tours__sort {
+        display: none;
     }
+}
+@media screen and (max-width: 530px) {
     .filter__form .callback__btn {
         width: 30%;
     }
@@ -258,8 +259,8 @@
     }
 }
 @media screen and (max-width:400px) {
-    .video__description .company__name {
-        line-height: 2em;
+    .company__name {
+        line-height: 3.2em;
         margin-top: 1em;
         font-size: 70px;
     }
