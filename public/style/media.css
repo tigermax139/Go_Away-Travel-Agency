@@ -19,7 +19,7 @@
         flex-direction: column;
         justify-content: space-around;
 
-        background-color: rgba(0,0,0, 0.7);
+        background-color: rgba(0,0,0, 0.75);
         width: 300%;
     }
 }

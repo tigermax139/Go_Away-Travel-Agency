@@ -43,7 +43,28 @@ window.addEventListener('click', function (event) {
         }
     }
 });
-
+//close all modal and dropdown after press Esc
+window.addEventListener("keydown",function(event) {
+    if (event.keyCode === 27){
+        const dropdowns = document.getElementsByClassName("sub-menu__container");
+        for (let i = 0; i < dropdowns.length; i++) {
+            let openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('sub-menu-show')) {
+                openDropdown.classList.remove('sub-menu-show');
+            }
+            if (openDropdown.classList.contains('sub-menu-show-labtop')) {
+                openDropdown.classList.remove('sub-menu-show-labtop');
+            }
+        }
+        const modal = document.getElementsByClassName('modal');
+           for (let i = 0; i < modal.length; i++) {
+               let openModal = modal[i];
+               if(openModal.classList.contains('modal-content-show')){
+                   openModal.classList.remove('modal-content-show');
+               }
+           }
+    }
+});
 
 /*
 // Dropdown Menu Component

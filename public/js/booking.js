@@ -1,20 +1,12 @@
-function hotelCost() {
-    const date = +new Date();
-    // const curr_date = date.getDate();
-    // const curr_month = date.getMonth() + 1;
-    // const curr_year = date.getFullYear();
-    // const _localDate = (curr_month + curr_date + curr_year );
-    const localDate = Math.round(date/86400000);
-    //console.log(curr_month +'/' + curr_date +'/' + curr_year );
-    console.log(localDate);
-
-
+function hotelCost(event) {
+    event.preventDefault();
+    
     // Поля для росчета стоимсти отелей
-    const _dateIn = document.getElementById('dateIn');
-    const _dateOut = document.getElementById('dateOut');
-    const  dateIn = Date.parse(_dateIn.value.split('/'))/86400000;
-    console.log(Math.round(dateIn));
-    const  dateOut = Date.parse(_dateOut.value.split('/'))/86400000;
+    const dateIn = document.getElementById('dateIn');
+    const dateOut = document.getElementById('dateOut');
+    // Парсим дату с милисекунд в дни
+    const  _dateIn = Date.parse(dateIn.value.split('/'))/86400000;
+    const  _dateOut = Date.parse(dateOut.value.split('/'))/86400000;
 
     const adult = document.getElementById('adult');
     const children = document.getElementById('children');
@@ -28,61 +20,69 @@ function hotelCost() {
     // let eat = document.getElementById('eat');
     //количиство дней * тип комнаты
     let day;
-    if((dateOut < +dateIn) || ( Math.round(dateIn) < localDate)) {
-        alert('Проверьте коректность дат!');
-    }else if(dateOut === dateIn){
-        day = +1 * roomType;
+    function dayPromise () {
+        return new Promise((resolve, reject) => {
+            if((dateIn.value === "")||(dateOut.value === "")){
+                reject();
+            }
+            if((_dateOut < +_dateIn)) {
+                reject();
+            }else if(_dateOut === _dateIn){
+                day = +1 * roomType;
+                resolve();
+            }
+            else{
+                day = +(_dateOut - _dateIn) * roomType;
+                resolve();
+            }
+        })
     }
-    else{
-        day = +(dateOut - dateIn) * roomType;
-    }
-    // отели
-    const hotel = document.getElementsByClassName('hotel');
-    for (let i = 0; i<hotel.length; i++){
-        // p стартовая цена отеля за одну ночь одного человека економ
-        let p = hotel[i].dataset.price;
-        //для упрощения формулы допустим что завтрак 1% от стоимости номера
-        // if(eat.checked){
-        //     eat = +p/100;
-        // }else {
-        //     eat = 0;
-        // }
-        let eat = 0;
-        //результат
-        let result =  Math.floor(
-            //стоимость номеров
-            (((_adult + _children)*(p * roomType))*day) +
-            //стоимость еды
-            ((_adult + _children)*day*eat));
-        hotel[i].dataset.order = result;
-        let summ = hotel[i].querySelector('.hotel__price');
-        summ.innerHTML = `<span class="hotel__price"> Стоимость: ${result}$ </span>`;
-    }
+    dayPromise()
+        .then(resolve => {
+            // отели
+            const hotel = document.getElementsByClassName('hotel');
+            for (let i = 0; i<hotel.length; i++){
+                // p стартовая цена отеля за одну ночь одного человека економ
+                let p = hotel[i].dataset.price;
+                //для упрощения формулы допустим что завтрак 1% от стоимости номера
+                // if(eat.checked){
+                //     eat = +p/100;
+                // }else {
+                //     eat = 0;
+                // }
+                let eat = 0;
+                //результат
+                let result =  Math.floor(
+                    //стоимость номеров
+                    (((_adult + _children)*(p * roomType))*day) +
+                    //стоимость еды
+                    ((_adult + _children)*day*eat));
+                hotel[i].dataset.order = result;
+                let summ = hotel[i].querySelector('.hotel__price');
+                summ.innerHTML = `<span class="hotel__price"> Стоимость: ${result}$ </span>`;
+            }
 
-    //Поля для отправки на сервер готового заказа
-    //вставляються сразу
-    const orderAdult = document.getElementById('orderAdult');
-    const orderChildren = document.getElementById('orderChildren');
-    const orderDateIn = document.getElementById('orderDateIn');
-    const orderDateOut = document.getElementById('orderDateOut');
-    const orderRoom = document.getElementById('orderRoom');
+            //Поля для отправки на сервер готового заказа
+            //вставляються сразу
+            const orderAdult = document.getElementById('orderAdult');
+            const orderChildren = document.getElementById('orderChildren');
+            const orderDateIn = document.getElementById('orderDateIn');
+            const orderDateOut = document.getElementById('orderDateOut');
+            const orderRoom = document.getElementById('orderRoom');
 
-    orderAdult.value = _adult;
-    orderChildren.value = _children;
-    orderDateIn.value = _dateIn.value;
-    orderDateOut.value = _dateOut.value;
-    orderRoom.value = room.options[room.selectedIndex].text;
+            orderAdult.value = _adult;
+            orderChildren.value = _children;
+            orderDateIn.value = _dateIn.value;
+            orderDateOut.value = _dateOut.value;
+            orderRoom.value = room.options[room.selectedIndex].text;
 
-    //Сдвигаем нашу робочую зону
-    const cost = document.querySelector('.cost');
-    const hotels = document.querySelector('.hotels');
-    //const booking = document.querySelector('.booking');
-
-    cost.classList.remove('slider__visible');
-    cost.classList.add('slider__hidden');
-    hotels.classList.add('slider__visible');
-
-
+           slideSection('cost', 'hotels');
+            scrollToTop(800);
+        })
+        .catch( reject => {
+            console.log(reject);
+            alert('Проверьте коректность дат!');
+        })
 }
 function booking(hotelId) {
     const hotelPrice = document.getElementById(hotelId).dataset.order;
@@ -92,16 +92,41 @@ function booking(hotelId) {
     const orderHotel = document.getElementById('orderHotel');
     //Общая цена тур плюс отель
     const generalPrice = Number(hotelPrice) + Number(tourPrice);
-    orderPrice.value = generalPrice + '$';
+    orderPrice.value = ` Итого: ${generalPrice}$`;
     //Идентификатор отеля равен его имени
     orderHotel.value = hotelId;
 
-    //Сдвигаем нашу робочую зону
-    const booking = document.querySelector('.booking');
-    const hotels = document.querySelector('.hotels');
-    //const booking = document.querySelector('.booking');
+    slideSection('hotels', 'booking');
+    scrollToTop(800);
+}
+function slideSection(currentPage, nextPage) {
 
-    hotels.classList.remove('slider__visible');
-    hotels.classList.add('slider__hidden');
-    booking.classList.add('slider__visible');
+    // console.log(currentPage);
+    // console.log(nextPage);
+
+    //Сдвигаем нашу робочую зону
+    const current = document.querySelector(`.${currentPage}`);
+    const next = document.querySelector(`.${nextPage}`);
+
+    current.classList.remove('slider__visible');
+    current.classList.add('slider__hidden');
+    next.classList.remove('slider__hidden');
+    next.classList.add('slider__visible');
+}
+function validator (sectionName) {
+    const section = document.querySelector(`.${sectionName}`);
+    const inputs = section.querySelectorAll('[required]');
+    let counter;
+
+    for(let input of inputs){
+        if(input.checkValidity() === false) {
+            counter++;
+        }
+        console.log(counter);
+    }
+}
+// validator('cost');
+
+function scrollToTop(pageY = 0) {
+    $("html, body").animate({ scrollTop: pageY }, "slow");
 }
