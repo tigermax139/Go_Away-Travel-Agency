@@ -126,7 +126,9 @@ function validator (sectionName) {
     }
 }
 // validator('cost');
-
 function scrollToTop(pageY = 0) {
     $("html, body").animate({ scrollTop: pageY }, "slow");
+}
+function starGenerator() {
+    
 }

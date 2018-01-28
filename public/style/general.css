@@ -482,6 +482,8 @@ textarea.modal__form-item:focus {
 
 	position: relative;
 	background-color: #005d8f;
+
+	transition: 0.25s;
 }
 .tour:hover,
 .tour:focus,
