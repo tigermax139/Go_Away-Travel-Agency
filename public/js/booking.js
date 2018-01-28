@@ -77,7 +77,7 @@ function hotelCost(event) {
             orderRoom.value = room.options[room.selectedIndex].text;
 
            slideSection('cost', 'hotels');
-            scrollToTop(800);
+           // scrollToTop(800);
         })
         .catch( reject => {
             console.log(reject);
@@ -97,10 +97,10 @@ function booking(hotelId) {
     orderHotel.value = hotelId;
 
     slideSection('hotels', 'booking');
-    scrollToTop(800);
+   // scrollToTop(800);
 }
 function slideSection(currentPage, nextPage) {
-
+    scrollToTop(800);
     // console.log(currentPage);
     // console.log(nextPage);
 
