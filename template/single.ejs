@@ -90,9 +90,9 @@
                                 <%= hotel.hotelName %>
                             </h3>
                             <div class="hotel__stars" data-stars="<%= hotel.hotelStar %>">
-                                <span class="star__item">
-
-                                </span>
+                                <% for (var i = 1; i <= hotel.hotelStar; i++) { %>
+                                    <span class="star__item"></span>
+                                <% } %>
                             </div>
                             <div class="hotel__img">
                                 <img src="../img/hotels/<%= hotel.hotelImg %>" alt="<%= hotel.hotelName %>">

@@ -1029,6 +1029,12 @@ input:required + span:before {
 	padding: 5px;
 }
 .hotel__stars {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	flex-wrap: nowrap;
+
 	top: auto;
 	bottom: 5%;
 }

@@ -130,5 +130,15 @@ function scrollToTop(pageY = 0) {
     $("html, body").animate({ scrollTop: pageY }, "slow");
 }
 function starGenerator() {
-    
+    const hotels = document.querySelectorAll('.hotel__stars');
+    let item = `<span class="star__item"></span>`;
+
+    for(let i = 0; i < hotels.length; i++){
+       let stars = hotels[i].dataset.stars;
+       for(let j = 0; j < stars; j++){
+           item += item;
+       }
+       hotels[i].innerHTML = item;
+    }
 }
+//starGenerator();
