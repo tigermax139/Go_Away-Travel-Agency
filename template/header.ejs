@@ -60,55 +60,5 @@
         </ul>
     </nav>
 </header>
-<!--MODAL CALLBACK WINDOW BEGIN-->
-<div class="modal container-fluid " id="modalCallback-w">
-    <div class="modal__container container">
-        <div class="modal__title">
-            <b>
-                Заполните пожалуйста все поля заявки, и наш менеджер
-                обезательно с вами свяжеться!
-            </b>
-        </div>
-        <form action="#" method="post" class="modal__form">
-            <label for="customerName" class="modal__form-item">
-                Как к вам можно обращаться?
-            </label>
-            <input type="text" class="modal__form-item" name="customerName" id="customerName" placeholder="Имя"
-                   pattern="^[A-Za-zА-Яа-яЁё]+$" required>
-            <label for="customerNumber" class="modal__form-item">
-                Ваш номер телефона
-            </label>
-            <input type="tel" class="modal__form-item" id="customerNumber" name="customerNumber" placeholder="+38000000000"
-                   minlength="10" maxlength="13" required>
-            <textarea name="customerMessage" id="customerMessage" class="modal__form-item" cols="30" rows="10"
-                      placeholder="Здесь можете написать свой коментарий"></textarea>
-            <input type="submit" class="callback__btn" value="Заказать звонок" >
-        </form>
-        <button class="callback__btn modal-close">
-            <img src="../img/icons/multiply.png" alt="cross">
-        </button>
-    </div>
-</div>
-<!--MODAL CALLBACK WINDOW END  -->
-<!--MODAL SEARCH WINDOW BEGIN-->
-<div class="modal container-fluid " id="modalSearch-w">
-    <div class="modal__container container">
-        <div class="modal__title">
-            <b>
-               Если вы покупали билет, введите его ID в форму ниже
-            </b>
-        </div>
-        <form action="/search" method="post" class="modal__form">
-            <label for="ticketId" class="modal__form-item">
-                Номер Билета
-            </label>
-            <input type="text" class="modal__form-item" name="ticketId" id="ticketId" placeholder="Номер Билета"
-                   required>
-            <input type="submit" class="callback__btn" value="Найти" >
-        </form>
-        <button class="callback__btn modal-close">
-            <img src="../img/icons/multiply.png" alt="cross">
-        </button>
-    </div>
-</div>
-<!--MODAL SEARCH WINDOW END  -->
+<% include modal_window/callback_modal %>
+<% include modal_window/search_modal %>

@@ -1,0 +1,26 @@
+<!--MODAL SEARCH WINDOW BEGIN-->
+<div class="modal container-fluid " id="modalSearch-w">
+    <div class="modal__container container">
+        <div class="modal__title">
+            <b>
+                Если вы покупали билет, введите его ID в форму ниже
+            </b>
+        </div>
+        <form action="/search" method="post" class="cost__form">
+            <label for="ticketId" class="cost__label">
+                Номер Билета
+                <input type="text" class="cost__input" name="ticketId" id="ticketId" placeholder="Номер Билета"
+                       required>
+                <span></span>
+            </label>
+            <button type="submit" class="btn-just cost__btn ticket__btn-item" title="Заказать звонок" >
+                <span class="btn__text">Найти</span>
+                <img src="../img/icons/loupe.png" alt="search loupe">
+            </button>
+        </form>
+        <button class="modal-close">
+            <img src="../img/icons/multiply.png" alt="cross">
+        </button>
+    </div>
+</div>
+<!--MODAL SEARCH WINDOW END  -->

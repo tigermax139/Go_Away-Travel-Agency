@@ -1,4 +1,3 @@
-
 // Modal window Component
 function modalWindow(buttonId, modalId) {
     const open = document.querySelector(buttonId);
@@ -65,7 +64,16 @@ window.addEventListener("keydown",function(event) {
            }
     }
 });
-
+//Location
+function getLocation() {
+    const current = window.location.pathname;
+    const links = document.querySelectorAll(`[href="${current}"]`);
+    for(let i = 0; i < links.length; i++){
+       links[i].href = '#';
+       links[i].classList.add('active-link');
+    }
+}
+getLocation();
 /*
 // Dropdown Menu Component
 function dropdown() {

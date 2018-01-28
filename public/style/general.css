@@ -135,6 +135,10 @@ header {
 	color: #C7911B;
 	transition: 0.4s all linear;
 }
+.active-link {
+	color: #c7640c !important;
+	cursor: text;
+}
 /********** MODAL WINDOW ************/
 .modal {
 	background-color: rgba(0,0,0, 0.6);
@@ -148,7 +152,8 @@ header {
 
 	display: none;
 	flex-direction: column;
-	justify-content: space-around;
+	justify-content: center;
+	align-items: center;
 }
 .modal-content-show {
 	display: flex;
@@ -158,8 +163,8 @@ header {
 .modal__container {
 	background-color: rgba(255,255,255,0.8);
 	border: 1px solid gray;
-	border-radius: 20px;
-	padding: 30px 20px;
+	/*border-radius: 20px;*/
+	padding: 50px 30px 20px;
 
 	position: relative;
 }
@@ -174,7 +179,8 @@ header {
 
 	display: flex;
 	flex-direction: column;
-	justify-content: space-around;
+	justify-content: center;
+	align-items: center;
 }
 .modal__form-item {
 	margin-bottom: 20px;
@@ -203,6 +209,26 @@ textarea.modal__form-item:focus {
 	color: black;
 	border: none;
 	border-radius: 5px;
+}
+
+.modal .cost__form {
+	max-width: none;
+	width: 100%;
+	margin-bottom: 10px;
+}
+.modal .cost__input,
+.modal .cost__textarea {
+	box-sizing: border-box;
+}
+.cost__form ~ .modal-close {
+	padding: 5px;
+	outline-color: #005d8f;
+	background-color: transparent;
+}
+.cost__form ~ .modal-close:hover {
+
+	transform: rotate(360deg);
+	transition: 0.7s all ease-out;
 }
 /******* video **********/
 .video {
@@ -640,6 +666,7 @@ textarea.modal__form-item:focus {
 /**************BREADCRUMBS****/
 .breadcrumbs {
 	background-color: #34aacf;
+	padding: 10px 0;
 }
 .breadcrumbs__container {
 	list-style-image: url("../img/icons/sun.png");
@@ -655,13 +682,14 @@ a.breadcrumbs__item {
 
 	color: white;
 	text-decoration: none;
-	text-transform: uppercase;
+	text-transform: capitalize;
+	line-height: 1.5em;
 
 	position: relative;
 }
 a.breadcrumbs__item:after {
 	display: block;
-	content: '/';
+	content: '»';
 	background-color: transparent;
 	color: white;
 
