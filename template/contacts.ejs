@@ -11,9 +11,9 @@
     </section>
     <div class="container">
         <% include section/gallery %>
-        <div class="contact__wrapper">
+        <div class="contacts__wrapper">
             <section class="about">
-                <h2 class="tour__title">
+                <h2 class="section__description">
                     Пару слов о нас
                 </h2>
                 <div class="about__content">
@@ -26,8 +26,8 @@
                 </div>
             </section>
             <section class="contacts">
-                <h2 class="tour__title">
-                    Нашы контакты
+                <h2 class="section__description">
+                    Наши контакты
                 </h2>
                 <div class="contacts__content">
                     <ul class="contacts__list">
@@ -50,13 +50,42 @@
                     </ul>
                 </div>
             </section>
-            <section class="map" id="map">
-
+            <section class="contacts__form">
+                <h2 class="section__description">
+                    Напишите нам
+                </h2>
+                <form action="#" method="post" class="cost__form" id="order">
+                    <label for="name" class="cost__label">
+                        Ваше имя
+                        <input type="text" class="cost__input" name="name" id="name" required>
+                        <span></span>
+                    </label>
+                    <label for="number" class="cost__label">
+                        Ваш номер телефона
+                        <input type="tel" class="cost__input" id="number" name="number"
+                               placeholder="+38000000000"
+                               minlength="10" maxlength="13" required>
+                        <span></span>
+                    </label>
+                    <label for="email" class="cost__label">
+                        Ваша почта
+                        <input type="email" class="cost__input" id="email" name="email"
+                               required>
+                        <span></span>
+                    </label>
+                    <button type="submit" class="btn-just cost__btn ticket__btn-item" title="Отправить письмо" >
+                        <span class="btn__text">Отправить</span>
+                        <img src="../img/icons/send.png" alt="send mail">
+                    </button>
+                </form>
             </section>
         </div>
+        <section class="map" id="map">
+
+        </section>
     </div>
 </main>
 <script src="../js/map.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTmHY3DAaeDuWO3SPWS0fY7BANr1tyEx0&callback=initMap">
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtOcxjzvi0lo1a7_FPC8aRekUSSc6cCf4&callback=initMap">
 </script>
 <% include section/footer %>

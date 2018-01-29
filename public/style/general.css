@@ -1079,6 +1079,36 @@ input:required + span:before {
 	background-repeat: no-repeat;
 	background-size: contain;
 }
+/***********CONTACTS*********/
+.contacts__wrapper {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-content: stretch;
+	flex-wrap: wrap-reverse;
+
+	padding-top: 20px;
+}
+
+.about {
+	flex-basis: 100%;
+}
+.contacts {
+	flex-basis: 40%;
+}
+.contacts__form {
+	flex-basis: 60%;
+}
+.contacts__form .section__description {
+	text-align: center;
+}
+.contacts__form .cost__form {
+	max-width: none;
+	width: initial;
+}
+#map {
+	height: 80vh;
+}
 /*************FOOTER*********/
 footer {
 	background-color: #005d8f;
