@@ -1,0 +1,62 @@
+<% include section/header %>
+<main class="container-fluid">
+    <section class="container-fluid hero">
+        <h1 class="company__name page__name">Contacts</h1>
+    </section>
+    <section class="container-fluid breadcrumbs">
+        <ul class="container breadcrumbs__container">
+            <li><a href="/index" class="breadcrumbs__item">Главная</a></li>
+            <li><span>Контакты</span></li>
+        </ul>
+    </section>
+    <div class="container">
+        <% include section/gallery %>
+        <div class="contact__wrapper">
+            <section class="about">
+                <h2 class="tour__title">
+                    Пару слов о нас
+                </h2>
+                <div class="about__content">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, architecto blanditiis
+                        consequatur cumque eos exercitationem fugiat hic libero molestias praesentium provident, quas
+                        quasi quo recusandae sunt tenetur ullam. Porro, rem?</p>
+                    <p>Animi consequatur, delectus distinctio, ea eaque fugiat laudantium nisi nostrum nulla pariatur,
+                        possimus praesentium quia reprehenderit rerum similique sint soluta velit vero vitae
+                        voluptatibus! At dolorem explicabo pariatur quisquam repellat!</p>
+                </div>
+            </section>
+            <section class="contacts">
+                <h2 class="tour__title">
+                    Нашы контакты
+                </h2>
+                <div class="contacts__content">
+                    <ul class="contacts__list">
+                        <li class="contacts__list-item">
+                            улица Соборная, Винница, <br>
+                            Винницкая область, 21000
+                        </li>
+                        <li class="contacts__list-item icon-map">
+                            <a href="tel:+380961745762">+380961745762</a>
+                        </li>
+                        <li class="contacts__list-item icon-tell">
+                            <a href="tel:+380961745762">+380961745762</a>
+                        </li>
+                        <li class="contacts__list-item icon-tell">
+                            <a href="tel:+380961745762">+380961745762</a>
+                        </li>
+                        <li class="contacts__list-item icon-mail">
+                            <a href="mailto:bohdan.yurchuk96@gmail.com">travelagency@gmail.com</a>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <section class="map" id="map">
+
+            </section>
+        </div>
+    </div>
+</main>
+<script src="../js/map.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTmHY3DAaeDuWO3SPWS0fY7BANr1tyEx0&callback=initMap">
+</script>
+<% include section/footer %>
