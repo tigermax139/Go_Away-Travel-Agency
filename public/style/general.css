@@ -1206,8 +1206,10 @@ footer .container {
 .fade-in {
     transform: scale(0);
     opacity: 0;
+	max-height: 0;
+	max-width: 0;
 
-    transition: 1s all;
+    transition: 1s scale;
 }
 .display-none {
     display: none;

@@ -7,7 +7,7 @@
                 обезательно с вами свяжеться!
             </b>
         </div>
-        <form action="#" method="post" class="cost__form">
+        <form action="#" method="post" class="cost__form" >
             <label for="customerName" class="cost__label">
                 Как к вам можно обращаться?
                 <input type="text" class="cost__input" name="customerName" id="customerName" placeholder="Имя"
@@ -24,7 +24,8 @@
                 <textarea name="customerMessage" id="customerMessage" class="cost__textarea" cols="30" rows="10"
                           placeholder="Здесь можете написать свой коментарий"></textarea>
             </label>
-            <button type="submit" class="btn-just cost__btn ticket__btn-item" title="Заказать звонок" >
+            <button type="submit" class="btn-just cost__btn ticket__btn-item" title="Заказать звонок"
+                onclick="xhrRequest(event, '/callback','modalCallback-w')">
                 <span class="btn__text">Заказать звонок</span>
                 <img src="../img/icons/phone-call.png" alt="phone call">
             </button>

@@ -74,6 +74,63 @@ function getLocation() {
     }
 }
 getLocation();
+function xhrRequest(event, url, formId) {
+    event.preventDefault();
+    // get value
+    const form = document.getElementById(formId);
+    const _form = form.querySelector('form');
+    const labels = form.querySelectorAll('label');
+    const customerName = form.querySelector('#customerName');
+    const customerNumber = form.querySelector('#customerNumber');
+    const customerMessage = form.querySelector('#customerMessage');
+    const title = form.querySelector('.modal__title b');
+    const btn = form.querySelector('.cost__btn');
+    const data = {
+        customerName: customerName.value,
+        customerNumber: customerNumber.value,
+        customerMessage: customerMessage.value,
+        status: 'new'
+    };
+
+    function promise () {
+        return new Promise((resolve, reject) => {
+            if(!customerName.value){
+                customerName.classList.add('invalid');
+                reject('No name');
+            }
+            if((!customerNumber.value) || (customerNumber.value > 13) || (customerNumber.value < 10)){
+                customerNumber.classList.add('invalid');
+                reject('No number');
+            }
+            else resolve();
+        });
+    }
+    btn.addEventListener('click', (event) =>{
+        promise()
+            .then(resolve => {
+                const xhr = new XMLHttpRequest();
+                xhr.open('POST', url, true);
+                xhr.setRequestHeader('Content-Type', 'application/json');
+                xhr.send(JSON.stringify(data));
+                title.innerHTML = 'Ваша заявка успешно доставлена!';
+                btn.innerHTML = 'Готово!';
+                _form.classList.add('fade-in');
+            })
+            .then(resolve => {
+                setTimeout(() => {
+                    form.classList.remove('modal-content-show');
+                }, 3000);
+            })
+            .catch(reason => {
+                console.log(reason);
+            })
+    });
+}
+
+/*
+.then(resolve => {
+
+
 /*
 // Dropdown Menu Component
 function dropdown() {

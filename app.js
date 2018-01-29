@@ -3,7 +3,6 @@ const app = express();
 const bodyParser = require('body-parser');
 const ejs = require('ejs');
 const path = require('path');
-
 /*****************MONGO DB  *****************************/
 const MongoClient = require('mongodb').MongoClient;
 const urlDB = 'mongodb://admin:aunion67@ds261527.mlab.com:61527/travel_agency';
@@ -21,7 +20,7 @@ app.use('/',express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({
     extended: true
 }));
-
+app.use(bodyParser.json());
 app.get('/', (req, res) => {
     res.render('index');
 });
@@ -244,6 +243,31 @@ app.get('/delete/:id', (req, res) => {
             res.redirect('/tours');
         });
     });
+});
+
+//Subscribe middleware
+app.post('/subscribe', (req, res) => {
+    console.log(req.body);
+});
+//Callback middleware
+app.post('/callback', (req, res) => {
+    const {customerName, customerNumber, customerMessage, status} = req.body;
+    const customer = {
+        customerName,
+        customerNumber,
+        customerMessage,
+        status
+    };
+    MongoClient.connect(urlDB, (err, db) => {
+        db.collection("callback").insertOne(customer, (err, result) => {
+            if(err) {
+                return res.status(400).send();
+            }
+            db.close();
+        });
+    });
+
+
 });
 /*********LISTENER************/
 app.use((req, res, next) => {
