@@ -76,6 +76,8 @@ header {
 	text-transform: uppercase;
 	text-decoration: none;
 	font-size: 18px;
+
+	outline: none;
 }
 .navbar a:hover,
 .navbar a:focus,
@@ -101,6 +103,7 @@ header {
 }
 .sub-menu:hover::after{
 	animation: bonce 0.8s linear;
+	content: url("../img/icons/down-arrow-gold.png");
 }
 .sub-menu:after {
 	display: inline-block;

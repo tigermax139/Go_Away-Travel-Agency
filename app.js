@@ -269,6 +269,7 @@ app.post('/callback', (req, res) => {
                 return res.status(400).send();
             }
             db.close();
+            res.status(200).send();
         });
     });
 

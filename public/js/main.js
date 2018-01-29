@@ -16,10 +16,10 @@ function modalWindow(buttonId, modalId) {
         modal.classList.remove('modal-content-show');
         overlay.classList.remove('modal-content-show');
     });
-    let inputTel = document.querySelector('[type=tel]');
-    inputTel.addEventListener('focus', function () {
-        inputTel.value = '+380';
-    });
+    // let inputTel = document.querySelector('[type=tel]');
+    // inputTel.addEventListener('focus', function () {
+    //     inputTel.value = '+380';
+    // });
 }
 // Dropdown Menu
 /* When the user clicks on the button,
@@ -89,7 +89,6 @@ function xhrRequest(event, url, formId) {
     // get value
     const form = document.getElementById(formId);
     const _form = form.querySelector('form');
-    const labels = form.querySelectorAll('label');
     const customerName = form.querySelector('#customerName');
     const customerNumber = form.querySelector('#customerNumber');
     const customerMessage = form.querySelector('#customerMessage');
@@ -102,39 +101,33 @@ function xhrRequest(event, url, formId) {
         status: 'new'
     };
 
-    function promise () {
-        return new Promise((resolve, reject) => {
-            if(!customerName.value){
-                customerName.classList.add('invalid');
-                reject('No name');
-            }
-            if((!customerNumber.value) || (customerNumber.value > 13) || (customerNumber.value < 10)){
-                customerNumber.classList.add('invalid');
-                reject('No number');
-            }
-            else resolve();
-        });
+    if(!customerName.value){
+        customerName.classList.add('invalid');
     }
-    btn.addEventListener('click', (event) =>{
-        promise()
-            .then(resolve => {
-                const xhr = new XMLHttpRequest();
-                xhr.open('POST', url, true);
-                xhr.setRequestHeader('Content-Type', 'application/json');
-                xhr.send(JSON.stringify(data));
-                title.innerHTML = 'Ваша заявка успешно доставлена!';
-                btn.innerHTML = 'Готово!';
-                _form.classList.add('fade-in');
-            })
-            .then(resolve => {
-                setTimeout(() => {
-                    form.classList.remove('modal-content-show');
-                }, 3000);
-            })
-            .catch(reason => {
-                console.log(reason);
-            })
-    });
+    if((!customerNumber.value) || (customerNumber.value.length > 14) || (customerNumber.value.length < 10)){
+        customerNumber.classList.add('invalid');
+    }else {
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', url, true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(JSON.stringify(data));
+        xhr.onreadystatechange = alertContents;
+        
+        function alertContents() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    title.innerHTML = 'Ваша заявка успешно доставлена!';
+                    btn.innerHTML = 'Готово!';
+                    _form.classList.add('fade-in');
+                    setTimeout(() => {
+                        form.classList.remove('modal-content-show');
+                    }, 3000)
+                }
+            }else {
+                title.innerHTML = 'Проблемы соединения с сервером, попробуйте пожже';
+            }
+        }
+    }
 }
 
 
