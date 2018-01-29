@@ -1,6 +1,5 @@
 // Modal window Component
 function modalWindow(buttonId, modalId) {
-    debugger;
     const open = document.querySelector(buttonId);
     const modal = document.querySelector(modalId);
     const overlay = modal.querySelector('.overlay');
@@ -74,7 +73,10 @@ window.addEventListener("keydown",function(event) {
 });
 //Location
 function getLocation() {
-    const current = window.location.pathname;
+    let current = window.location.pathname;
+    if((current === "/")  || (current === "")){
+        current = "/index"
+    }
     const links = document.querySelectorAll(`[href="${current}"]`);
     for(let i = 0; i < links.length; i++){
        links[i].href = '#';

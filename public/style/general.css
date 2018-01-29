@@ -949,6 +949,8 @@ a.breadcrumbs__item:hover {
 	font-weight: bold;
 
 	margin-top: 10px;
+	/*что б форма не прыгала*/
+	margin-bottom: 1px;
 	padding: 5px 10px;
 }
 .cost__input:hover,
@@ -964,7 +966,8 @@ a.breadcrumbs__item:hover {
 .cost__select:focus,
 .cost__textarea:focus{
 	border-bottom: 2px solid #003eff;
-
+	/*что б форма не прыгала*/
+	margin-bottom: 0;
 	outline: none;
 	transition: 0.2s;
 }
