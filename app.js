@@ -113,7 +113,7 @@ app.post('/createTour', (req, res) => {
                 return res.status(400).send();
             }
             db.close();
-            res.redirect('admin/createTour');
+            res.redirect('/createTour');
         });
     });
 });
@@ -140,7 +140,7 @@ app.post('/createHotel', (req, res) => {
                 return res.status(400).send();
             }
             db.close();
-            res.redirect('admin/createHotel');
+            res.redirect('/createHotel');
         });
     });
 });

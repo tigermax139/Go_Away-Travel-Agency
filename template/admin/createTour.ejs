@@ -1,12 +1,12 @@
-<% include header %>
-<form action="createTour" method="post" class="admin__form">
-    <label for="tourName">
+<% include ../section/header %>
+<form action="/createTour" method="post" class="admin__form cost__form">
+    <label for="tourName" class="cost__label">
         Tour name
-        <input type="text" name="tourName" id="tourName">
+        <input type="text" name="tourName" id="tourName" class="cost__input">
     </label>
-    <label for="tourCountry">
+    <label for="tourCountry" class="cost__label">
         Tour Country
-        <select name="tourCountry" id="tourCountry">
+        <select name="tourCountry" id="tourCountry" class="cost__select">
             <option selected>Все страны</option>
             <optgroup label="Европа">
                 <option value="Германия" >Германия</option>
@@ -26,18 +26,19 @@
             </optgroup>
         </select>
     </label>
-    <label for="tourPrice">
+    <label for="tourPrice" class="cost__label">
         Tour Price
-        <input type="number" name="tourPrice" id="tourPrice">
+        <input type="number" name="tourPrice" id="tourPrice" class="cost__input">
     </label>
-
-    <textarea name="tourDescription" id="tourDescription" cols="30" rows="10">
+    <label for="tourDescription" class="cost__label">
+         <textarea name="tourDescription" id="tourDescription" cols="30" rows="10" class="cost__textarea">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet asperiores
         assumenda eos eveniet explicabo fugiat hic inventore, ipsum laboriosam maiores
         modi natus placeat quam recusandae saepe similique tenetur ullam ut?
     </textarea>
-
-    <textarea name="tourContent" id="tourContent" cols="30" rows="10">
+    </label>
+    <label for="" class="cost__label">
+         <textarea name="tourContent" id="tourContent" cols="30" rows="10" class="cost__textarea">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit.
             A aperiam corporis dignissimos earum ipsa laboriosam magnam nam nobis nostrum quos,
             reprehenderit, sed, similique vitae. Ducimus odit quia tempora velit voluptatum.
@@ -48,9 +49,9 @@
             provident quas, soluta sunt vel voluptate! Amet dolore, doloremque, ex hic nobis officia
             quas quisquam rerum, sed tenetur totam unde!
     </textarea>
-
-    <label for="tourFeatures">
-        <select name="tourFeatures" id="tourFeatures">
+    </label>
+    <label for="tourFeatures" class="cost__label">
+        <select name="tourFeatures" id="tourFeatures" class="cost__select">
             <option value="Топ направления">Топ направления</option>
             <option value="Скидка">Скидка</option>
             <option value="Детский тур">Детский тур</option>
@@ -59,9 +60,9 @@
         </select>
     </label>
 
-    <label for="tourImg">
-        <input type="file" name="tourImg" id="tourImg" accept="image/*">
+    <label for="tourImg" class="cost__label">
+        <input type="file" name="tourImg" id="tourImg" accept="image/*" class="cost__input">
     </label>
-    <input type="submit" value="Create tour">
+    <input type="submit" value="Create tour" class="btn-just cost__btn">
 </form>
-<% include footer %>
+<% include ../section/footer %>

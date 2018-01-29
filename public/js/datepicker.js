@@ -1,4 +1,14 @@
 $( function() {
+    const size = +900;
+    const clientWidth = window.innerWidth;
+    //необходимая переменная для оперденления шырины екрана
+    //на ммобилке лезет календарь
+    let count = 1;
+    if(clientWidth <= size) {
+        count = 1;
+    }else if(clientWidth > size){
+        count = 2;
+    }
     let dateFormat = "mm/dd/yy",
         from = $( "#dateIn" )
             .datepicker({
@@ -13,7 +23,7 @@ $( function() {
             maxDate: '+2M',
             minDate: "+1D",
             changeMonth: true,
-            numberOfMonths: 2
+            numberOfMonths: count
         })
             .on( "change", function() {
                 from.datepicker( "option", "clip", getDate( this ) );

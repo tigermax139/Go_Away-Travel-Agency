@@ -652,7 +652,6 @@ textarea.modal__form-item:focus {
 .tour-short:hover .tour-features:before {
 	z-index: 0;
 }
-
 .tour-short .tour__description p {
 	display: none;
 }
@@ -1127,7 +1126,7 @@ input:required + span:before {
 	color: #C7911B;
 
 	transform: translateX(10px);
-	transition: 0.3s;
+	transition: 0.5s;
 }
 #map {
 	height: 80vh;
@@ -1364,6 +1363,13 @@ footer .container {
 /********ADMIN*******/
 .admin__form {
 	padding-top: 100px;
+	padding-bottom: 80px;
+}
+.admin__form.cost__form {
+	max-width: 80%;
+	width: auto;
+	margin: 0 auto;
+	align-self: center;
 }
 .admin__form label{
 	display: block;

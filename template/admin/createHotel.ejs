@@ -1,12 +1,12 @@
-<% include header %>
-<form action="createHotel" method="post" class="admin__form">
-    <label for="hotelName">
+<% include ../section/header %>
+<form action="createHotel" method="post" class="admin__form cost__form">
+    <label for="hotelName" class="cost__label">
         hotel name
-        <input type="text" name="hotelName" id="hotelName">
+        <input type="text" name="hotelName" id="hotelName" class="cost__input" required>
     </label>
-    <label for="hotelCountry">
+    <label for="hotelCountry" class="cost__label">
         hotel Country
-        <select name="hotelCountry" id="hotelCountry">
+        <select name="hotelCountry" id="hotelCountry" class="cost__select" required>
             <option selected>Все страны</option>
             <optgroup label="Европа">
                 <option value="Германия" >Германия</option>
@@ -26,31 +26,33 @@
             </optgroup>
         </select>
     </label>
-    <label for="hotelPrice">
+    <label for="hotelPrice" class="cost__label">
         hotel Price for once adult person
-        <input type="number" name="hotelPrice" id="hotelPrice">
+        <input type="number" name="hotelPrice" id="hotelPrice" class="cost__input" required>
     </label>
-    <label for="hotelStar">
+    <label for="hotelStar" class="cost__label">
         hotel Star
-        <input type="number" name="hotelStar" id="hotelStar" max="5" min="1">
+        <input type="number" name="hotelStar" id="hotelStar" max="5" min="1" class="cost__input">
     </label>
-    <textarea name="hotelDescription" id="hotelDescription" cols="30" rows="10">
+    <label for="hotelDescription" class="cost__label">
+            <textarea name="hotelDescription" id="hotelDescription" cols="30" rows="10"
+                      class="cost__textarea">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet asperiores
         assumenda eos eveniet explicabo fugiat hic inventore, ipsum laboriosam maiores
         modi natus placeat quam recusandae saepe similique tenetur ullam ut?
     </textarea>
-
-    <label for="hotelFeatures">
-        <select name="hotelFeatures" id="hotelFeatures">
+    </label>
+    <label for="hotelFeatures"  class="cost__label">
+        <select name="hotelFeatures" id="hotelFeatures"  class="cost__select">
             <option value="Топ направления">Лучшее</option>
             <option value="Скидка">Скидка</option>
             <option value="" selected>Empty</option>
         </select>
     </label>
 
-    <label for="hotelImg">
-        <input type="file" name="hotelImg" id="hotelImg" accept="image/*">
+    <label for="hotelImg" class="cost__label">
+        <input type="file" name="hotelImg" id="hotelImg" accept="image/*" class="cost__input" required>
     </label>
-    <input type="submit" value="Create hotel">
+    <input type="submit" value="Create hotel" class="btn-just cost__btn">
 </form>
-<% include footer %>
+<% include ../section/footer %>
