@@ -1,13 +1,21 @@
 // Modal window Component
 function modalWindow(buttonId, modalId) {
+    debugger;
     const open = document.querySelector(buttonId);
     const modal = document.querySelector(modalId);
+    const overlay = modal.querySelector('.overlay');
     const close = modal.querySelector('.modal-close');
     open.addEventListener('click', function () {
         modal.classList.add('modal-content-show');
+        overlay.classList.add('modal-content-show');
     });
     close.addEventListener('click', function () {
         modal.classList.remove('modal-content-show');
+        overlay.classList.remove('modal-content-show');
+    });
+    overlay.addEventListener('click', function () {
+        modal.classList.remove('modal-content-show');
+        overlay.classList.remove('modal-content-show');
     });
     let inputTel = document.querySelector('[type=tel]');
     inputTel.addEventListener('focus', function () {

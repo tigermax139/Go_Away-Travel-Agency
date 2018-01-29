@@ -141,6 +141,18 @@ header {
 }
 /********** MODAL WINDOW ************/
 .modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 91;
+	display: none;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.overlay {
 	background-color: rgba(0,0,0, 0.6);
 
 	position: fixed;
@@ -148,12 +160,9 @@ header {
 	left: 0;
 	right: 0;
 	bottom: 0;
-	z-index: 100;
+	z-index: 90;
 
 	display: none;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
 }
 .modal-content-show {
 	display: flex;
@@ -167,6 +176,7 @@ header {
 	padding: 50px 30px 20px;
 
 	position: relative;
+	z-index: 92;
 }
 .modal__title {
 	margin-bottom: 20px;
