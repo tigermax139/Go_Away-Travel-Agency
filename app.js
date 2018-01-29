@@ -93,7 +93,7 @@ function tourView(req, res, sample = {}, render) {
 }
 //Create tour
 app.get('/createTour', (req, res) => {
-    res.render('createTour');
+    res.render('admin/createTour');
 });
 app.post('/createTour', (req, res) => {
     const {tourName, tourCountry, tourPrice, tourDescription, tourContent, tourFeatures, tourImg} = req.body;
@@ -113,14 +113,14 @@ app.post('/createTour', (req, res) => {
                 return res.status(400).send();
             }
             db.close();
-            res.redirect('/createTour');
+            res.redirect('admin/createTour');
         });
     });
 });
 
 //Create tour
 app.get('/createHotel', (req, res) => {
-    res.render('createHotel');
+    res.render('admin/createHotel');
 });
 app.post('/createHotel', (req, res) => {
     const {hotelName, hotelCountry, hotelPrice, hotelStar, hotelDescription, hotelFeatures, hotelImg} = req.body;
@@ -140,7 +140,7 @@ app.post('/createHotel', (req, res) => {
                 return res.status(400).send();
             }
             db.close();
-            res.redirect('/createHotel');
+            res.redirect('admin/createHotel');
         });
     });
 });
@@ -243,6 +243,11 @@ app.get('/delete/:id', (req, res) => {
             res.redirect('/tours');
         });
     });
+});
+
+//Contacts
+app.get('/contacts', (req, res) => {
+    res.render('contacts');
 });
 
 //Subscribe middleware
