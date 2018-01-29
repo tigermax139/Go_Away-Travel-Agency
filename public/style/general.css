@@ -224,7 +224,6 @@ textarea.modal__form-item:focus {
 	border: none;
 	border-radius: 5px;
 }
-
 .modal .cost__form {
 	max-width: none;
 	width: 100%;
@@ -1089,9 +1088,11 @@ input:required + span:before {
 
 	padding-top: 20px;
 }
-
 .about {
 	flex-basis: 100%;
+}
+.about .section__description {
+	text-align: center;
 }
 .contacts {
 	flex-basis: 40%;
@@ -1103,11 +1104,32 @@ input:required + span:before {
 	text-align: center;
 }
 .contacts__form .cost__form {
-	max-width: none;
+	max-width: 95%;
 	width: initial;
+
+}
+.contacts__list {
+	list-style-image: url("../img/icons/sun.png");
+	list-style-position: outside;
+}
+.contacts__list-item a {
+	display: block;
+	padding: 5px 10px;
+	color: black;
+	text-transform: capitalize;
+	text-decoration: none;
+	transition: 0.1s;
+}
+.contacts__list-item a:hover {
+	color: #C7911B;
+
+	transform: translateX(10px);
+	transition: 0.3s;
 }
 #map {
 	height: 80vh;
+
+	margin: 20px 0;
 }
 /*************FOOTER*********/
 footer {

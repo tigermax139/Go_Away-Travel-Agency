@@ -234,6 +234,11 @@
     .filter__form .callback__btn {
         width: 20%;
     }
+    .contacts__wrapper {
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+    }
 }
 @media screen and (max-width: 640px) {
     .tours__sort {
